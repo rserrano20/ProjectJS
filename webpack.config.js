@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/js/index.js',
-    admin: './src/js/admin.js',
+    admin: './src/js/admin.js'  
   },
   output: {
     filename: 'js/[name].js',
@@ -60,6 +60,48 @@ module.exports = {
       chunks:['admin'],
       filename: './admin.html'
   }),  
+  new HtmlWebpackPlugin({
+    template: './src/acerca.html',
+    minify:{
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true
+    },
+    inject:true,
+    chunks:['acerca'],
+    filename: './acerca.html'
+}), 
+new HtmlWebpackPlugin({
+  template: './src/contacto.html',
+  minify:{
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true
+  },
+  inject:true,
+  chunks:['contacto'],
+  filename: './contacto.html'
+}),   
+new HtmlWebpackPlugin({
+  template: './src/error404.html',
+  minify:{
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true
+  },
+  inject:true,
+  chunks:['error404'],
+  filename: './error404.html'
+}), 
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
   }),

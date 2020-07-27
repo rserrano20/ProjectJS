@@ -1,3 +1,65 @@
 body{
-    background: rgb(76, 129, 55);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Ropa Sans', sans-serif;
+}
+#app{
+    height: 50px;
+}
+
+
+/*Colores de fondo*/
+
+#black{
+    background-color: #050505;
+}
+
+#orange{
+    background-color: #FE7B68;
+}
+
+#darkgrey{
+    background-color: #262626;
+}
+
+#lightgrey{
+    background-color: #C7C7C7;
+}
+
+#white{
+    background-color: #FFFFFF;
+}
+
+#lightgrey-t{
+
+}
+
+/*Colores de Texto*/
+
+#black-t{
+    color: #050505;
+}
+
+#orange-t{
+    color: #FE7B68;
+}
+
+#darkgrey{
+    color: #262626
+}
+
+#lightgrey-t{
+    color: #C7C7C7;
+}
+
+#white-t{
+    color: #FFFFFF;
+}
+
+/*Efectos mouse*/
+
+.efectoimg:hover{
+    transition: 150ms;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    filter: opacity(.9)
 }
