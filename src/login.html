@@ -9,7 +9,7 @@
     <title>START</title>
     <meta name="description" content="Tienda Online de VideoJuegos">
     <meta name="keywords"
-        content="ubisoft, tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles">
+        content="Start, tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="black" id="white-t">
             <div class="container">
                 <a class="navbar-brand efectoimg" href="index.html" target="blank">
-                    <img class="mb-3 efectoimg" src="img/logo3.png" alt="logo start" width="80px">
+                    <img  src="img/logo3.png" alt="logo start" width="80px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,12 +44,12 @@
                             <a class="nav-link" href="acerca.html">ACERCA DE |</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link efectoimg" href="contacto.html">REGISTRARSE 
+                            <a class="nav-link efectoimg" href="admin.html">REGISTRARSE 
                                 <i class="fas fa-user-edit ml-2"></i>
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link efectoimg" href="contacto.html"><strong>INICIAR SESION </strong>
+                            <a class="nav-link efectoimg" href="login.html"><strong>INICIAR SESION </strong>
                                 <i class="fas fa-user-circle fa-1x"></i></a>
                         </li>
                     </ul>
@@ -61,21 +61,27 @@
 
 <!--SECCION PRINCIPAL-->
     <section id="darkgrey">
-        <br>
-        <br>
-        <br>
-        <br>                            
-        <br>                            <!--Borrar luego estos <br>-->
-        <br>
-        <br>
-        <br>
-        <br>                            
-        <br>                            <!--Borrar luego estos <br>-->
-        <br>
-        <br>
-        <br>
-        <br>
+        <article class="container">
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </article>
     </section>
+    
+   
     
 <!--FOOTER-->
     <footer class="text-light py-4" id="darkgrey">
@@ -148,8 +154,6 @@
             <p><small>2020 Start Entertainment. All Rights Reserved.</small></p>
         </div>
     </footer>
-
-   
 </body>
 
 </html>

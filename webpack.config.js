@@ -102,6 +102,20 @@ new HtmlWebpackPlugin({
   chunks:['error404'],
   filename: './error404.html'
 }), 
+new HtmlWebpackPlugin({
+  template: './src/login.html',
+  minify:{
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true
+  },
+  inject:true,
+  chunks:['login'],
+  filename: './login.html'
+}),   
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
   }),
