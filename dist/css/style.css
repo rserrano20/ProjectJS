@@ -92,9 +92,9 @@ body{
 
 /* Estilos pagina loguin */
 
-/* .fondologuin{
-    background-image: url(../img/fondologuin.jpg);
-}  Asi es como la estoy poniendo con un class para que no se le agrege en todas las paginas del proyecto*/
+ .fondologuin{
+    background-image: url("https://wallpaperaccess.com/full/264293.jpg");
+} 
 
 .boton{
     width: 300px;
@@ -109,4 +109,8 @@ body{
 }
 .titulologuin{
     margin-bottom: 60px;
+}
+
+#hr{
+    background-color: white;
 }

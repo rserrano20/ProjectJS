@@ -44,7 +44,7 @@
                             <a class="nav-link" href="historia.html">CONTACTO |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="productos.html">ACERCA DE |</a>
+                            <a class="nav-link" href="acerca.html">ACERCA DE |</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link efectoimg" href="contacto.html">REGISTRARSE
@@ -61,31 +61,34 @@
         </nav>
         </div>
     </header>
-    
- <section class="container formulario">
-     <div class="titulologuin">
-        <h1 class="mt-5 "><strong>Accede</strong> a tu plataforna gamer</h1>
-        <hr>
-    </div>
+
+    <section class="container formulario">
+        <div class="titulologuin">
+            <h1 class="mt-5 text-light"><strong>Accede</strong> a tu plataforma gamer</h1>
+            <hr id="hr">
+        </div>
         <div class="row justify-content-center">
             <article class="col-sm-12 col-md-4 col-lg-4 mr-5">
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
+                        <label for="exampleInputEmail1" class="text-light">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Tucorreo@gmail.com" required>
                     </div>
                     <div class="form-group ">
-                        <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Tu contraseña">
-                        <button class="btn btn-outline-light my-1 text-primary">¿Olvidaste tu contraseña?</button>
+                        <label for="exampleInputPassword1 " class="text-light">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Tu contraseña" required>
+                        <button type="button" class="btn btn-outline-dark text-danger my-2 " data-toggle="modal"
+                            data-target="#exampleModal">
+                            ¿Olvidaste tu contraseña?
+                        </button>
                         <br>
-                    <button type="submit" class="btn btn-primary">Iniciar</button>
+                        <button type="submit" class="btn btn-primary">Iniciar</button>
                 </form>
             </article>
             <article class="col-sm-12 col-md-4 col-lg-4 mt-2 text-center">
-                <h4 class="text-center">Inicar con:</h4>
-                <a href="https://www.gmail.com/" label><button class="btn btn-danger boton mb-1"><i
+                <h4 class="text-center text-light">Inicar con</h4>
+                <a href="https://www.gmail.com/" label><button class="btn btn-danger boton mb-2"><i
                             class="fab fa-google"></i> Google</button></a><br>
                 <a href="https://www.facebook.com/" label><button class="btn btn-primary boton mb-3"><i
                             class="fab fa-facebook-f"></i> Facebook</button></a>
@@ -159,6 +162,39 @@
             <p><small>© Todos los Derechos Reservados - Grupo 3 - Comisión 7D</small></p>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title text-light" id="exampleModalLabel ">Recuperar contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-light">
+                    Para poder recuperar tu contraseña llena el siguiente campo asi podemos mandarte tu nueva contraseña
+                    <hr id="hr">
+                    <form>
+                        <p class="text-light">Tu correo con el que te registraste al suscribirte</p>
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control form-control-sm" id="colFormLabelSm"
+                                    placeholder="Tucorreo@gmail.com">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
