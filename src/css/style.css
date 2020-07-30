@@ -83,3 +83,24 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+/* Estilos pagina loguin */
+
+/* .fondologuin{
+    background-image: url(../img/fondologuin.jpg);
+}  Asi es como la estoy poniendo con un class para que no se le agrege en todas las paginas del proyecto*/
+
+.boton{
+    width: 300px;
+}
+
+.logo{
+    height: 60px;
+}
+.formulario{
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.titulologuin{
+    margin-bottom: 60px;
+}

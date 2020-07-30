@@ -2,14 +2,16 @@
 <html lang="es">
 
 <!--HEAD-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Nicolas Bertini Arganaras - Franco Olmi - Ignacio Salas -  Raul de Serranos - Rosario Serrano">
-    <title>START GAMER</title>
+    <meta name="author"
+        content="Nicolas Bertini Arganaras - Franco Olmi - Ignacio Salas -  Raul de Serranos - Rosario Serrano">
+    <title>Ubisoft</title>
     <meta name="description" content="Tienda Online de VideoJuegos">
     <meta name="keywords"
-        content="Start, tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles">
+        content="ubisoft, tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -18,13 +20,14 @@
 </head>
 
 <!--BODY-->
-<body>
+
+<body class="fondologuin">
     <header>
         <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="black" id="white-t">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " id="black" id="white-t">
             <div class="container">
                 <a class="navbar-brand efectoimg" href="index.html" target="blank">
-                    <img  src="img/logo3.png" alt="logo start" width="80px">
+                    <img src="img/logo3.png" alt="logo startGamer" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -38,18 +41,18 @@
                             <a class="nav-link" href="index.html">INICIO |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">CONTACTO |</a>
+                            <a class="nav-link" href="historia.html">CONTACTO |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="acerca.html">ACERCA DE |</a>
+                            <a class="nav-link" href="productos.html">ACERCA DE |</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link efectoimg" href="admin.html">REGISTRARSE 
+                            <a class="nav-link efectoimg" href="contacto.html">REGISTRARSE
                                 <i class="fas fa-user-edit ml-2"></i>
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link efectoimg" href="login.html"><strong>INICIAR SESION </strong>
+                            <a class="nav-link efectoimg" href="contacto.html"><strong>INICIAR SESION </strong>
                                 <i class="fas fa-user-circle fa-1x"></i></a>
                         </li>
                     </ul>
@@ -58,44 +61,47 @@
         </nav>
         </div>
     </header>
-
-<!--SECCION PRINCIPAL-->
-    <section id="darkgrey">
-        <article class="container">
-        <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-          </article>
-    </section>
     
-   
-    
-<!--FOOTER-->
-    <footer class="text-light py-4" id="darkgrey">
-        <div class="text-center text-light " id="orange">
-            <h4><strong>START GAMER ENTERTAINMENT S.A.</strong></h4>
+ <section class="container formulario">
+     <div class="titulologuin">
+        <h1 class="mt-5 "><strong>Accede</strong> a tu plataforna gamer</h1>
+        <hr>
+    </div>
+        <div class="row justify-content-center">
+            <article class="col-sm-12 col-md-4 col-lg-4 mr-5">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Tucorreo@gmail.com" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Tu contraseña">
+                        <button class="btn btn-outline-light my-1 text-primary">¿Olvidaste tu contraseña?</button>
+                        <br>
+                    <button type="submit" class="btn btn-primary">Iniciar</button>
+                </form>
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 mt-2 text-center">
+                <h4 class="text-center">Inicar con:</h4>
+                <a href="https://www.gmail.com/" label><button class="btn btn-danger boton mb-1"><i
+                            class="fab fa-google"></i> Google</button></a><br>
+                <a href="https://www.facebook.com/" label><button class="btn btn-primary boton mb-3"><i
+                            class="fab fa-facebook-f"></i> Facebook</button></a>
+            </article>
         </div>
+    </section>
 
+    <!--FOOTER-->
+    <footer class="text-light py-4" id="darkgrey">
         <div class="container text-center">
             <div class="row">
                 <article class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-4">
                             <a href="index.html" target="blank">
-                                <img class="mb-3 efectoimg" src="img/logo3.png" alt="logo start" width="80px">
+                                <img class="mb-3 efectoimg" src="img/logo3.png" alt="logo ubisoft" width="125px">
                             </a>
                             <br>
                             <ul class="list-unstyled">
@@ -111,36 +117,36 @@
                         <div class="col-sm-12 col-md-4 py-4" id="white-t">
                             <p><strong>Descarga la Aplicacion Movil:</strong></p>
                             <br>
-                            <a href="https://apps.apple.com" target="blank">
+                            <a href="https://apps.apple.com/app/ubisoft-club/id405228226" target="blank">
                                 <img src="img/appstore.svg" alt="tienda de apple" id="app" class="efectoimg"></a>
                             <br>
                             <br>
-                            <a href="https://play.google.com"  target="blank">
+                            <a href="https://play.google.com/store/apps/details?id=com.ubisoft.uplay&hl=fr"
+                                target="blank">
                                 <img src="img/playstore.svg" alt="playstore" id="app" class="efectoimg"></a>
                         </div>
-
 
                         <div class="col-sm-12 col-md-4 py-4" id="white-t">
                             <p><strong>Visita Nuestras Redes:</strong></p>
                             <br>
                             <ul class="list-unstyled">
-                                <li><a href="https://twitter.com" target="_blank">
-                                    <i class="fab fa-twitter fa-2x efectoimg mx-2"  style="color: white"></i>
-                                </a>
-                                <a href="https://www.facebook.com" target="_blank">
-                                    <i class="fab fa-facebook-f fa-2x efectoimg mx-2" style="color: white"></i>
-                                </a></li>
+                                <li><a href="https://twitter.com/Ubisoft" target="_blank">
+                                        <i class="fab fa-twitter fa-2x efectoimg mx-2" style="color: white"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/ubisoft/" target="_blank">
+                                        <i class="fab fa-facebook-f fa-2x efectoimg mx-2" style="color: white"></i>
+                                    </a></li>
                             </ul>
                             <ul class="list-unstyled">
-                                <li><a href="https://www.twitch.tv">
-                                    <i class="fab fa-twitch fa-2x my-1 efectoimg mx-2" style="color: white"></i>
-                                </a>
-                                <a href="https://www.youtube.com" target="_blank">
-                                    <i class="fab fa-youtube fa-2x my-1 efectoimg mx-2" style="color: white"></i>
-                                </a></li>
-                                <li><a href="https://www.instagram.com" target="_blank">
-                                    <i class="fab fa-instagram fa-2x my-2 efectoimg mt-2" style="color: white"></i>
-                                </a></li>
+                                <li><a href="https://www.twitch.tv/ubisoft">
+                                        <i class="fab fa-twitch fa-2x my-1 efectoimg mx-2" style="color: white"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UCBMvc6jvuTxH6TNo9ThpYjg" target="_blank">
+                                        <i class="fab fa-youtube fa-2x my-1 efectoimg mx-2" style="color: white"></i>
+                                    </a></li>
+                                <li><a href="https://www.instagram.com/ubisoft/" target="_blank">
+                                        <i class="fab fa-instagram fa-2x my-2 efectoimg mt-2" style="color: white"></i>
+                                    </a></li>
                             </ul>
                         </div>
 
@@ -151,7 +157,6 @@
         <hr>
         <div class="text-center text-muted" id="lightgrey-t">
             <p><small>© Todos los Derechos Reservados - Grupo 3 - Comisión 7D</small></p>
-            <p><small>2020 Start Entertainment. All Rights Reserved.</small></p>
         </div>
     </footer>
 </body>
