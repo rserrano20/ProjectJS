@@ -1,5 +1,5 @@
 {
-  "name": "Projectjs",
+  "name": "projectjs",
   "version": "1.0.0",
   "description": "Tienda Online de VideoJuegos",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
@@ -31,5 +31,13 @@
     "Games"
   ],
   "author": "Raul de Serranos, Nicolas Bertini Argañaras, Ignacio Salas, Rosario Serrano",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rserrano20/ProjectJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rserrano20/ProjectJS/issues"
+  },
+  "homepage": "https://github.com/rserrano20/ProjectJS#readme"
 }
