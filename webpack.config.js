@@ -133,6 +133,20 @@ new HtmlWebpackPlugin({
   chunks:['detalle'],
   filename: './detalle.html'
 }),
+new HtmlWebpackPlugin({
+  template: './src/registro.html',
+  minify:{
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true
+  },
+  inject:true,
+  chunks:['registro'],
+  filename: './registro.html'
+}),
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
   }),
