@@ -13,6 +13,10 @@ module.exports = {
     acerca: './src/js/acerca.js',
     error404: './src/js/error404.js',
     detalle: './src/js/detalle.js', 
+<<<<<<< HEAD
+=======
+     
+>>>>>>> maqdos
   },
   output: {
     filename: 'js/[name].js',
