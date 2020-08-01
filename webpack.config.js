@@ -9,7 +9,10 @@ module.exports = {
     admin: './src/js/admin.js',
     login: './src/js/login.js',
     registro: './src/js/registro.js',
-     
+    contacto: './src/js/contacto.js',
+    acerca: './src/js/acerca.js',
+    error404: './src/js/error404.js',
+    detalle: './src/js/detalle.js', 
   },
   output: {
     filename: 'js/[name].js',
