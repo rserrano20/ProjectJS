@@ -12,7 +12,7 @@ module.exports = {
     contacto: './src/js/contacto.js',
     acerca: './src/js/acerca.js',
     error: './src/js/error404.js',
-    detalle: './src/js/detalle.js'
+    detalle: './src/js/detalle.js',
      
   },
   output: {
