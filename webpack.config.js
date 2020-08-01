@@ -11,12 +11,9 @@ module.exports = {
     registro: './src/js/registro.js',
     contacto: './src/js/contacto.js',
     acerca: './src/js/acerca.js',
-    error404: './src/js/error404.js',
-    detalle: './src/js/detalle.js', 
-<<<<<<< HEAD
-=======
+    error: './src/js/error404.js',
+    detalle: './src/js/detalle.js'
      
->>>>>>> maqdos
   },
   output: {
     filename: 'js/[name].js',
