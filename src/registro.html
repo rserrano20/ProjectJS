@@ -5,24 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Nicolas Bertini Arganaras - Franco Olmi - Ignacio Salas -  Raul de Serranos - Rosario Serrano">
-    <title>START GAMER</title>
     <meta name="description" content="Tienda Online de VideoJuegos">
-    <meta name="keywords"
-        content="ubisoft, tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="keywords" content="tienda, online, videojuegos, store, juegos, fps, rpg, accion, aventura, carreras, estrategia, mmorpg, store, games, online, offline, e-commerce, trailers, lanzamientos, avances, pc, playstation, xbox, nintendo, mobiles" >
+    <title>START GAMER</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/8636d8c12d.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8636d8c12d.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Ropa+Sans&display=swap" rel="stylesheet">
 </head>
 <!--BODY-->
-<body>
+<body  id="darkgrey">
     <header>
         <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="black" id="white-t">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="black" id="white-t">
             <div class="container">
                 <a class="navbar-brand efectoimg" href="index.html" target="blank">
-                    <img src="img/logo3.png" alt="logo start Gamer" width="80px">
+                    <img src="img/logo3.png" alt="logo startGamer" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,12 +51,10 @@
                 </div>
             </div>
         </nav>
-        </div>
     </header>
     <!--SECCION PRINCIPAL-->
-    <section id="darkgrey" class=" content mt-5">
+    <section class="container formulario" >
         <div class="titulologuin">
-            <hr>
             <h1 class="mt-5 text-center text-light"><strong>Registrate</strong> </h1>
             <hr id="hr">
         </div>
@@ -67,8 +63,7 @@
                     <form onsubmit="">
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Juan Perez"
-                                onblur="">
+                            <input type="text" class="form-control" id="nombre" placeholder="Juan Perez" onblur="">
                             <div class="invalid-feedback">
                                 Debe ingresar un nombre
                             </div>
@@ -78,8 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label>Apellido</label>
-                            <input type="text" class="form-control" id="apellido" placeholder="Juan Perez"
-                                onblur="">
+                            <input type="text" class="form-control" id="apellido" placeholder="Juan Perez" onblur="">
                             <div class="invalid-feedback">
                                 Debe ingresar tu apellido
                             </div>
@@ -89,8 +83,7 @@
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" id="usuario" placeholder="Juan Perez"
-                                onblur="">
+                            <input type="text" class="form-control" id="usuario" placeholder="Juan Perez" onblur="">
                             <div class="invalid-feedback">
                                 Debe ingresar un Usuario
                             </div>
@@ -111,18 +104,16 @@
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="juanperez@gmail.com"
-                                onblur="" required>
+                            <input type="email" class="form-control" id="email" placeholder="juanperez@gmail.com" onblur="" required>
                             <div class="invalid-feedback">
-                                Debe ingresar un mail valido
+                                Debe ingresar un email valido
                             </div>
                             <div class="valid-feedback">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="juanperez@gmail.com"
-                                onblur="" required>
+                            <input type="email" class="form-control" id="email" placeholder="juanperez@gmail.com" onblur="" required>
                             <div class="invalid-feedback">
                                 Debe ingresar un email nuevamente
                             </div>
@@ -144,16 +135,14 @@
                         </div>
                         <button class="btn btn-primary" type="submit">Registrar</button>
                     </form>
-                    </article>
-                    <article class="col-sm-12 col-md-4 col-lg-4 mt-2 text-center">
-                        <h4 class="text-center text-light">Iniciar con</h4>
-                        <a href="https://www.gmail.com/" label><button class="btn btn-danger boton mb-2"><i
-                                    class="fab fa-google"></i> Google</button></a><br>
-                        <a href="https://www.facebook.com/" label><button class="btn btn-primary boton mb-3"><i
-                                    class="fab fa-facebook-f"></i> Facebook</button></a>
-                    </article>
-                    <div class="alert alert-black my-4 d-none" role="alert" id="msjEnvio">
-                    </div>
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 mt-2">
+                <h4 class="text-center text-light">Iniciar con</h4>
+                <a href="https://www.gmail.com/" label><button class="btn btn-danger boton mb-2"><i class="fab fa-google"></i> Google</button></a><br>
+                <a href="https://www.facebook.com/" label><button class="btn btn-primary boton mb-3"><i class="fab fa-facebook-f"></i> Facebook</button></a>
+            </article>
+             <div class="alert alert-black my-4 d-none" role="alert" id="msjEnvio">
+             </div>
         </div>
     </section>
     <!--FOOTER-->
@@ -176,7 +165,6 @@
                                 <li><a href="error404.html" target="blank">Contacto</a></li>
                             </ul>
                         </div>
-
                         <div class="col-sm-12 col-md-4 py-4" id="white-t">
                             <p><strong>Descarga la Aplicacion Movil:</strong></p>
                             <br>
@@ -187,7 +175,6 @@
                             <a href="https://play.google.com" target="blank">
                                 <img src="img/playstore.svg" alt="playstore" id="app" class="efectoimg"></a>
                         </div>
-
                         <div class="col-sm-12 col-md-4 py-4" id="white-t">
                             <p><strong>Visita Nuestras Redes:</strong></p>
                             <br>
@@ -211,7 +198,6 @@
                                     </a></li>
                             </ul>
                         </div>
-
                     </div>
                 </article>
             </div>
