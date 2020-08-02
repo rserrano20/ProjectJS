@@ -1,9 +1,10 @@
 export default class Usuario{
-    constructor(nombre, apellido, contraseña, correo){
+    constructor(nombre, apellido, contraseña, correo, tipo){
         this.nombre = nombre;
         this.apellido = apellido;
         this.contraseña = contraseña;
         this.correo = correo;
+        this.tipo = tipo;
     }
     get miNombre(){
         return this.nombre;
@@ -16,6 +17,9 @@ export default class Usuario{
     }
     get miCorreo(){
         return this.correo;
+    }
+    get miTipo(){
+        return this.tipo;
     }
 
 }
