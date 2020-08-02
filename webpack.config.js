@@ -9,10 +9,9 @@ module.exports = {
     admin: './src/js/admin.js',
     login: './src/js/login.js',
     registro: './src/js/registro.js',
-    error404: './src/js/error404.js',
-    contacto: './src/js/contacto.js',
-    acerca: './src/js/acerca.js',
-    detalle: './src/js/detalle.js'
+    cliente: './src/js/modelo/cliente.js',
+    juego: './src/js/modelo/juego.js',
+    usuario: './src/js/modelo/usuario.js'
      
   },
   output: {
@@ -136,20 +135,6 @@ new HtmlWebpackPlugin({
   inject:true,
   chunks:['detalle'],
   filename: './detalle.html'
-}),
-new HtmlWebpackPlugin({
-  template: './src/registro.html',
-  minify:{
-    collapseWhitespace: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true
-  },
-  inject:true,
-  chunks:['registro'],
-  filename: './registro.html'
 }),
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
