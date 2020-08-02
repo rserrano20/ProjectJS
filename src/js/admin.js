@@ -25,15 +25,3 @@ function aprobarCliente(){
     //O podemos mostrar todos los usuarios y agregarle un check a los que esten validados
 }
 
-window.nuevoAdministrador = function(){
-    let administrador = new Usuario(document.getElementById('').value, 
-        document.getElementById('').value, document.getElementById('').value, document.getElementById('').value);
-    
-    //Validacion de campos
-    validarDatos(document.getElementById('').value, 
-    document.getElementById('').value, document.getElementById('').value, document.getElementById('').value);
-
-
-}
-
-

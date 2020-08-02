@@ -1,8 +1,8 @@
 import Usuario from "./usuario";
 
 export default class Cliente extends Usuario{
-    constructor(nombre, apellido, contraseña, correo, estado){
-        super(nombre, apellido, contraseña, correo);
+    constructor(nombre, apellido, contraseña, correo, tipo, estado){
+        super(nombre, apellido, contraseña, correo, tipo);
         this.estado = estado;
     }
     get miEstado(){

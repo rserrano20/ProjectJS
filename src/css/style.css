@@ -81,3 +81,28 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+/* Estilos pagina loguin */
+
+ .fondologuin{
+    background-image: url("https://wallpaperaccess.com/full/264293.jpg");
+} 
+
+.boton{
+    width: 300px;
+}
+
+.logo{
+    height: 60px;
+}
+.formulario{
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.titulologuin{
+    margin-bottom: 60px;
+}
+
+#hr{
+    background-color: white;
+}
