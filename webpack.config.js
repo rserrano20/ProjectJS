@@ -9,10 +9,9 @@ module.exports = {
     admin: './src/js/admin.js',
     login: './src/js/login.js',
     registro: './src/js/registro.js',
+    error404: './src/js/error404.js',
     contacto: './src/js/contacto.js',
     acerca: './src/js/acerca.js',
-    error: './src/js/error404.js',
-    detalle: './src/js/detalle.js',
      
   },
   output: {
@@ -41,7 +40,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html', 
+        template: './src/index.html',
         minify:{
           collapseWhitespace: true,
           removeComments: true,
