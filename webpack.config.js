@@ -12,6 +12,7 @@ module.exports = {
     error404: './src/js/error404.js',
     contacto: './src/js/contacto.js',
     acerca: './src/js/acerca.js',
+    detalle: './src/js/detalle.js'
      
   },
   output: {

@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import '../css/style.css';
-import 'jquery';
-import 'popper.js'
+import 'popper.js';
 import $ from 'jquery';
 import Cliente from './modelo/cliente';
+
 let registroClientes = [];
 
             //el Key en el LocalStorage será "administradores" y "clientes"
