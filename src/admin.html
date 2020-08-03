@@ -62,7 +62,6 @@
                 </div>
             </section>
             <section>
-                <hr>
                 <article class="row my-4">
                     <div class="col-10 text-center">
                         <h3>Tabla de Productos</h3>
@@ -73,7 +72,7 @@
                     </div>
                 </article>
                 <article>
-                    <table class="table">
+                    <table class="table  text-light text-center">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Codigo</th>
@@ -82,9 +81,11 @@
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Publicado</th>
                                 <th scope="col">Precio</th>
+                                <th scope="col">Opciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody  id="bodyJuego">
+                            
                         </tbody>
                     </table>
                 </article>
@@ -102,7 +103,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="validarFormJuego(event)" id="formJuego">
+                    <form onsubmit="" id="formGeneral">
                         <div class="form-group">
                             <label for="formGroupExampleInput">Codigo</label>
                             <input type="text" class="form-control" id="codigo"
@@ -124,14 +125,27 @@
                                 placeholder="Ingrese una Descripcion">
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput2">Publicado</label>
-                            <input type="text" class="form-control" id="publicado"
-                                placeholder="año 2005">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="publicado">
+                                <label class="form-check-label">
+                                    Publicado
+                                </label>
+                                <div class="invalid-feedback">
+                                    Juego publicado
+                                </div>
+                                <div class="valid-feedback">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Precio</label>
                             <input type="text" class="form-control" id="precio"
                                 placeholder="$240">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">URL</label>
+                            <input type="url" class="form-control" id="url"
+                                placeholder="https://www.google.com">
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
@@ -183,14 +197,14 @@
                                 class="fab fa-whatsapp-square fa-3x text-light efectoimg"></i></a>
 
                     </div>
-                </div>
-            </article>
-            <div class="text-center text-muted" id="black">
-                <p><small>© Todos los Derechos Reservados - Grupo 3 - Comisión 7D</small></p>
+                </article>
             </div>
-    </div>
-    
-</footer>
+        </div>
+        <hr>
+        <div class="text-center text-muted" id="lightgrey-t">
+            <p><small>© Todos los Derechos Reservados - Grupo 3 - Comisión 7D</small></p>
+        </div>
+    </footer>
 </body>
 
 </html>
