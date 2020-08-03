@@ -51,7 +51,6 @@ window.validarSesion = function(e){
         alert("BIENVENIDO "+usuario.nombre)
         //Deberiamos mandar al perfil del usuario o mandar al index y remplzar su nombre por el de "iniciar sesion" del nav
     }else{
-        //Deberiamos mandar error404
-        alert("Problema de Servidor");
+        document.getElementById('').className = "form-control is-invalid"; //Contraseña
     }
 }
