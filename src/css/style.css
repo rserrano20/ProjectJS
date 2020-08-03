@@ -14,31 +14,31 @@ body{
     font-family: 'Ropa Sans', sans-serif;
     
 }
-#app{
+.app{
     height: 50px;
 }
 
 
 /*Colores de fondo*/
 
-#black{
+.black{
     background-color: #050505;
     
 }
 
-#orange{
+.orange{
     background-color: #FE7B68;
 }
 
-#darkgrey{
+.darkgrey{
     background-color: #262626;
 }
 
-#lightgrey{
+.lightgrey{
     background-color: #C7C7C7;
 }
 
-#white{
+.white{
     background-color: #FFFFFF;
 }
 
@@ -46,23 +46,23 @@ body{
 
 /*Colores de Texto*/
 
-#black-t{
+.black-t{
     color: #050505;
 }
 
-#orange-t{
+.orange-t{
     color: #FE7B68;
 }
 
-#darkgrey{
+.darkgrey{
     color: #262626
 }
 
-#lightgrey-t{
+.lightgrey-t{
     color: #C7C7C7;
 }
 
-#white-t{
+.white-t{
     color: #FFFFFF;
 }
 
@@ -115,9 +115,7 @@ body{
     margin-bottom: 60px;
 }
 
-#hr{
-    background-color: white;
-}
+
 
 footer{
     max-height: 18px;

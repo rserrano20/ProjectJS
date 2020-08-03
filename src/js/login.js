@@ -3,7 +3,7 @@ import 'bootstrap';
 import '../css/style.css';
 import 'jquery';
 import 'popper.js'
-import Usuario from './modelo/usuario';
+import Usuario from './usuario.js';
 
 let registroUsuarios=[];
 
