@@ -3,6 +3,7 @@ import 'bootstrap';
 import '../css/style.css';
 import 'jquery';
 import 'popper.js'
+import {cargarAdministradorDefecto} from './registro.js';
 
 import Juego from './juego.js';
 
@@ -30,12 +31,11 @@ let registroJuegos= [accion1, accion2, accion3, accion4, disparo1, disparo2, dis
     disparo4, carrera1, carrera2, carrera3, carrera4, infantil1, infantil2, infantil3, infantil4];
 cargarIndex();
 
+
 function leerLS(){
-    console.log("En leerLS")
     if(localStorage.length>0){
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
     }else{
-        console.log("Else de leerLS()");
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
 }

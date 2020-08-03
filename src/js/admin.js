@@ -7,14 +7,14 @@ import $ from 'jquery';
 import '@fortawesome/fontawesome-free/js/all.min.js'
 import Usuario from './usuario.js';
 import Juego from './juego.js';
-/* import {validarDatos} from './registro.js'; */
+import {cargarAdministradorDefecto} from './registro.js';
 
 
 let registroUsuarios = [];
 let registroJuegos = [];
 cargarTablas();
 
-console.log('desde admin.js');
+
 
 function leerLS(){
     if(localStorage.length>0){
@@ -40,6 +40,10 @@ function cargarTablas(){
     leerLS();
     console.log("En cargarTabla")
     let bodyJuegos = document.getElementById('bodyJuego');
+    let bodyCliente = document.getElementById('bodyCliente');
+    let listadoClientes = registroUsuarios.filter(function(cliente){
+        return cliente.tipo == 'Cliente';
+    })
     let codHTML = '';
     let estado;
     console.log(registroJuegos);
@@ -65,7 +69,16 @@ function cargarTablas(){
         </tr>`;
         bodyJuegos.innerHTML += codHTML; 
     }
+    codHTML = '';
+    for(let i in listadoClientes){
+        if(listadoClientes[i].estado == 'Pendiente'){
+            codHTML = ``;
+            bodyCliente.innerHTML += codHTML;
+        }
+    }
 
 }
+
+
 
 
