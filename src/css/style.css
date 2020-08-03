@@ -6,11 +6,13 @@
 /*Font*/
 body {
     font-family: Roboto,sans-serif;
+    
 }
 
 body{
     font-family: 'Noto Sans JP', sans-serif;
     font-family: 'Ropa Sans', sans-serif;
+    
 }
 #app{
     height: 50px;
@@ -21,6 +23,7 @@ body{
 
 #black{
     background-color: #050505;
+    
 }
 
 #orange{
@@ -71,6 +74,15 @@ body{
     transform: scale(1.1);
     filter: opacity(.9)
 }
+/* tamaño */
+img.pequeña{
+    width: 110px; height: 140px;
+  }
+
+  img.error{
+      image-rendering: pixelated;
+      width: 70%;
+  }
 
 /*CATALOGO JUEGOS*/
 .catalogo{
@@ -99,10 +111,16 @@ body{
     margin-top: 150px;
     margin-bottom: 100px;
 }
+
 .titulologuin{
     margin-bottom: 60px;
 }
 
 #hr{
     background-color: white;
+}
+
+footer{
+    max-height: 18px;
+    margin: 0px;
 }
