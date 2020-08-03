@@ -36,7 +36,7 @@ function nuevoAdminitrador(){
 
 
 
-export function leerLS(){
+function leerLS(){
     if(localStorage.length>0){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));

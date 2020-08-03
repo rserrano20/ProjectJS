@@ -25,3 +25,4 @@ function aprobarCliente(){
     //O podemos mostrar todos los usuarios y agregarle un check a los que esten validados
 }
 
+
