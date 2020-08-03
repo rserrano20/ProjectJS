@@ -1,4 +1,3 @@
-
 export default class Usuario{
     constructor(nombre, apellido, contraseña, correo, tipo){
         this.nombre = nombre;
@@ -24,4 +23,3 @@ export default class Usuario{
     }
 
 }
-

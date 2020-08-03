@@ -1,6 +1,8 @@
+console.log('desde admin.js');
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import '../css/style.css'
+import '../css/style.css';
+import 'popper.js'
 import $ from 'jquery';
 import '@fortawesome/fontawesome-free/js/all.min.js'
 import Usuario from './modelo/usuario';
