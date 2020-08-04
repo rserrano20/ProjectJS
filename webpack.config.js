@@ -97,6 +97,20 @@ new HtmlWebpackPlugin({
   inject:true,
   chunks:['contacto'],
   filename: './contacto.html'
+}),
+new HtmlWebpackPlugin({
+  template: './src/registro.html',
+  minify:{
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true
+  },
+  inject:true,
+  chunks:['registro'],
+  filename: './registro.html'
 }),   
 new HtmlWebpackPlugin({
   template: './src/error404.html',
