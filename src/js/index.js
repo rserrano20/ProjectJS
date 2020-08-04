@@ -3,7 +3,6 @@ import 'bootstrap';
 import '../css/style.css';
 import 'jquery';
 import 'popper.js'
-import {cargarAdministradorDefecto} from './registro.js';
 
 import Juego from './juego.js';
 
@@ -46,7 +45,6 @@ function cargarIndex(){
 }
 
 function escribirIndex(){
-
     //Aqui por cada categoria voy a tener que tener un id de la etiqueta padre, 
     //y en el switch ir escribiendo respecto a la categoria que pertenece
     let tbodyAccion = document.getElementById('filaAccion');
@@ -68,7 +66,7 @@ function escribirIndex(){
                             <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="">Ver mas</a>
+                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Accion/Aventura')">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -88,7 +86,7 @@ function escribirIndex(){
                             <h4 class="card-title">Far Cry 3</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="">Ver mas</a>
+                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Disparos')">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -108,7 +106,7 @@ function escribirIndex(){
                             <h4 class="card-title">Trials Rising</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="">Ver mas</a>
+                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this,'Carreras')">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -128,7 +126,7 @@ function escribirIndex(){
                             <h4 class="card-title">Hungry Shark: Evo</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="">Ver mas</a>
+                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Infantiles')">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -144,9 +142,4 @@ function escribirIndex(){
                 break;
         }
     }
-}
-
-function juegoPermitido(item){
-    console.log("VALOR = "+ item.publicado)
-    return item.publicado != 'true';
 }

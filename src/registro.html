@@ -59,7 +59,7 @@
         </div>
         <div class="row justify-content-center text-light">
             <article class="col-sm-12 col-md-4 col-lg-4">
-                    <form onsubmit="">
+                    <form onsubmit="validarFormNuevoCliente(event)">
                         <div class="form-group">
                             <label>Nombre</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Juan Perez" onblur="">
@@ -80,7 +80,7 @@
                                 todo bien
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Usuario</label>
                             <input type="text" class="form-control" id="usuario" placeholder="Juan Perez" onblur="">
                             <div class="invalid-feedback">
@@ -89,7 +89,7 @@
                             <div class="valid-feedback">
                                 todo bien
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Contrasena</label>
                             <input type="password" class="form-control" id="pass" placeholder=""
@@ -103,7 +103,7 @@
                         </div>
                         <div class="form-group">
                             <label>Repita su Contrasena</label>
-                            <input type="password" class="form-control" id="pass" placeholder=""
+                            <input type="password" class="form-control" id="pass2" placeholder=""
                                 onblur="">
                             <div class="invalid-feedback">
                                 Debe ingresar una contraseña
