@@ -4,8 +4,10 @@ import '../css/style.css';
 import 'jquery';
 import 'popper.js'
 import Usuario from './usuario.js';
+import {cargarAdministradorDefecto} from './registro.js';
 
 let registroUsuarios=[];
+
 
 function leerLS(){
     if(localStorage.length>0){

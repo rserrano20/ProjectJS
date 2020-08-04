@@ -5,15 +5,21 @@ import $ from 'jquery';
 import Cliente from './cliente.js';
 import Usuario from './usuario';
 import Juego from './juego';
-import Swal from 'sweetalert2';
 
+
+leerLS();
 let registroUsuarios = [];
 let registroJuegos = [];
+
+
+
 
             //el Key en el LocalStorage será "Usuarios" y "Juegos"
             
             //Agregar un administradorActivo, para saber si hay un adminsitrador iniciado sesion y dar permisos para ejecutar funciones
             //Al cerrar sesion, eliminar los datos del administradorActivo
+
+
 
 function nuevoCliente() {
     //Accedo cuando los datos YA ESTAN VALIDADOS!
@@ -43,8 +49,17 @@ function leerLS(){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
     }
+    console.log(registroJuegos);
+    console.log(registroUsuarios);
+    if(registroUsuarios==null){
+        cargarAdministradorDefecto();
+    }
 }
-
+function cargarAdministradorDefecto(){
+    let administrdor = new Usuario('Rosario', 'Serrano', 'admin1234', 'rserrano@gmail.com', 'Administrador');
+    registroUsuarios = [administrdor]
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
+}
 
 
 
@@ -88,7 +103,7 @@ window.validarFormAdmin = function(e){
     }
 } */
 
-window.validarFormUsuario = function(e, condicion){
+window.validarFormNuevoUsuario = function(e, condicion){
     e.preventDefault();
     //true = Administrador. false = Cliente
     switch(true){

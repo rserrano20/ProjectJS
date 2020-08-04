@@ -114,18 +114,16 @@
                             <input type="text" class="form-control" id="nombre"
                                 placeholder="WAR">
                         </div>
-                        <div class="form-group">
-                            <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Categoria
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">Accion</a>
-                                  <a class="dropdown-item" href="#">Disparo</a>
-                                  <a class="dropdown-item" href="#">Carreras</a>
-                                  <a class="dropdown-item" href="#">Infantiles</a>
-                                </div>
-                              </div>
+                        <div class="form-group form-control">
+                            <label for="formGroupExampleInput2">Categoria</label>
+                            <select name="cars" id="cars" type="text">
+                                <option value="volvo" type="text">Accion/Aventura</option>
+                                <option value="saab" type="text">Disparos</option>
+                                <option value="opel" type="text">Carreras</option>
+                                <option value="audi" type="text">Infantiles</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" id="categoria"
+                                placeholder="Avengers"> -->
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Descripcion</label>
@@ -164,6 +162,72 @@
             </div>
         </div>
     </div> 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h5 class="modal-title" id="exampleModalLabel2">Agregar un nuevo cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="" id="formGeneral">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Nombre</label>
+                            <input type="text" class="form-control" id="n_cli"
+                                placeholder="Juan">
+                                <div class="invalid-feedback">
+                                    Debe ingresar un nombre
+                                </div>
+                                <div class="valid-feedback">
+                                    todo bien
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Apellido</label>
+                            <input type="text" class="form-control" id="ape_cli"
+                                placeholder="Perez">
+                                <div class="invalid-feedback">
+                                    Debe ingresar tu apellido
+                                </div>
+                                <div class="valid-feedback">
+                                    todo bien
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Contraseña</label>
+                            <input type="password" class="form-control" id="pass_cli"
+                                placeholder="">
+                                <div class="invalid-feedback">
+                                    Debe ingresar una contraseña
+                                </div>
+                                <div class="valid-feedback">
+                                    todo bien
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Correo</label>
+                            <input type="text" class="form-control" id="email_cli"
+                                placeholder="Ingrese su  correo">
+                                <div class="invalid-feedback">
+                                    Debe ingresar un correo  valido
+                                </div>
+                                <div class="valid-feedback">
+                                </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--FOOTER-->
 <footer class="text-light black" >
     <div class=" text-center py-1 black" >
