@@ -52,7 +52,7 @@
     </header>
 <!--SECCION PRINCIPAL-->
     <section class="container formulario">
-        <h1 class=" text-light text-center"><strong>Administrar Juegos</strong></h1>
+        <h1 class=" text-center"><strong>Administrar Juegos</strong></h1>
         <hr id="hr">
             <section class="row justify-content-center">
                 <div class="col-10">
@@ -115,9 +115,17 @@
                                 placeholder="WAR">
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput2">Categoria</label>
-                            <input type="text" class="form-control" id="categoria"
-                                placeholder="Avengers">
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Categoria
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Accion</a>
+                                  <a class="dropdown-item" href="#">Disparo</a>
+                                  <a class="dropdown-item" href="#">Carreras</a>
+                                  <a class="dropdown-item" href="#">Infantiles</a>
+                                </div>
+                              </div>
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Descripcion</label>
