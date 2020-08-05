@@ -9,6 +9,7 @@ leerLSActivo();
 function leerLSActivo(){
     if(localStorage.getItem('UsuariosActivos')!= null){
         leerLS();
+        
         let nav = document.getElementById('tipoNav');
         nav.innerHTML = `
         <div class="container">
@@ -37,13 +38,17 @@ function leerLSActivo(){
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link efectoimg" onclick="cerrarSesion()"><strong>CERRAR SESION </strong>
+                        <a class="nav-link efectoimg" onclick="cerrarSesion()">
                             <i class="fas fa-sign-out-alt"></i></a>
                     </li>
                 </ul>
             </div>
         </div>`
     }
+}
+window.cerrarSesion = function(){
+    localStorage.removeItem('UsuariosActivos');
+    document.location.reload(true);
 }
 
 function leerLS(){
@@ -52,7 +57,3 @@ function leerLS(){
     }
 }
 
-window.cerrarSesion = function(){
-    localStorage.removeItem('UsuariosActivos');
-    document.location.reload(true);
-}
