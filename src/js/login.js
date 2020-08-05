@@ -6,8 +6,7 @@ import 'popper.js'
 import Usuario from './usuario.js';
 
 let registroUsuarios=[];
-
-let usuarioActivo = null;
+let UsuariosActivos = [];
 
 function leerLS(){
     if(localStorage.length>0){
@@ -15,10 +14,10 @@ function leerLS(){
     }
 }
 
-function buscarUsuario(correoCliente){
+function buscarUsuario(correoUsuario){
     leerLS();
-    let usuarioEncontrado = registroUsuarios.find(function(cliente){
-        if(cliente.correo == correoCliente){
+    let usuarioEncontrado = registroUsuarios.find(function(usuario){
+        if(usuario.correo == correoUsuario){
             let usuario = new Usuario(registroUsuarios.nombre, registroUsuarios.apellido, 
                 registroUsuarios.cotraseña, registroUsuarios.correo, registroUsuarios.tipo);
             return usuario;
@@ -31,7 +30,6 @@ function buscarUsuario(correoCliente){
 //Para saber si el Correo es valido
 document.getElementById('email').addEventListener('onblur', function(){
     if(document.getElementById('email').value == buscarUsuario(document.getElementById('email').value).correo){
-        
         document.getElementById('email').className = "form-control is-valid";
     }else{
         document.getElementById('email').className = "form-control is-invalid";
@@ -49,24 +47,31 @@ document.getElementById('pass').addEventListener('onblur', function(){
 window.validarSesion = function(e){
     e.preventDefault();
     let usuario = buscarUsuario(document.getElementById('email').value);
-    if(usuario.correo == document.getElementById('email').value && usuario.contraseña == document.getElementById('pass').value){
-        alert("BIENVENIDO "+usuario.nombre);
-        usuarioActivo = usuario;
-        //Deberiamos mandar al perfil del usuario o mandar al index y remplzar su nombre por el de "iniciar sesion" del nav
-        if(usuario.tipo == 'Administrador'){
-            location.href = '../admin.html';
-        }else{
-            location.href = '../index.html';
+    if(usuario != null){
+        if(usuario.correo == document.getElementById('email').value && validarContra(usuario.contraseña, document.getElementById('pass').value)){
+            alert("BIENVENIDO "+usuario.nombre);
+            UsuariosActivos.push(usuario);
+            localStorage.setItem('UsuariosActivos', JSON.stringify(UsuariosActivos));
+            console.log(usuario.tipo);
+            //Deberiamos mandar al perfil del usuario o mandar al index y remplzar su nombre por el de "iniciar sesion" del nav 
+            if(usuario.tipo == 'Administrador'){
+                location.href = 'admin.html';
+            }else{
+                location.href = 'index.html';
+            }
         }
     }else{
-        document.getElementById('pass').className = "form-control is-invalid"; //Contraseña
+        document.getElementById('email').className = 'form-control is-invalid';
     }
 }
 
-function getUsuarioActivo(){
-    return usuarioActivo;
+function validarContra(usuario, contra){
+    if(usuario != contra){
+        document.getElementById('pass').className = 'form-control is-invalid';
+        return false;
+    }else{
+        return true;
+    }
 }
 
-function cleanUsuarioActivo(){
-    usuarioActivo = null;
-}
+

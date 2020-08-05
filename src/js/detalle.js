@@ -39,10 +39,7 @@ function getParameterByName(name, url) {
 let prodId = getParameterByName('Id');
 console.log("prodId fuera = "+prodId);
 
-
-
 function leerLS(){
-    console.log("LeerLS en detalle.js")
     if(localStorage.length>0){
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
     }
