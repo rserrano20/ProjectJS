@@ -34,7 +34,7 @@ function leerLSActivo(){
                         <a class="nav-link" href="acerca.html">ACERCA DE |</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link efectoimg" href="">${registroUsuariosActivos[0].nombre}
+                        <a class="nav-link efectoimg" onclick="direccionarAdmin()">${registroUsuariosActivos[0].nombre}
                             <i class="fas fa-user"></i>
                         </a>
                     </li>
@@ -45,6 +45,11 @@ function leerLSActivo(){
                 </ul>
             </div>
         </div>`
+    }
+}
+window.direccionarAdmin =function(){
+    if(registroUsuariosActivos[0].tipo == 'Administrador'){
+        location.href = 'admin.html';
     }
 }
 window.cerrarSesion = function(){
