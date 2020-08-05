@@ -31,6 +31,7 @@ let registroJuegos= [accion1, accion2, accion3, accion4, disparo1, disparo2, dis
 cargarIndex();
 
 
+
 function leerLS(){
     if(localStorage.length>0){
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
@@ -66,8 +67,7 @@ function escribirIndex(){
                             <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Accion/Aventura')">Ver mas</a>
-                                <button id="${juegoPublicados[i].codigo}" onclick=" return cargarDetalle(this, 'Accion/Aventura')">ver..</button>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -87,7 +87,7 @@ function escribirIndex(){
                             <h4 class="card-title">Far Cry 3</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a  class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Disparos')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -107,7 +107,7 @@ function escribirIndex(){
                             <h4 class="card-title">Trials Rising</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this,'Carreras')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -127,7 +127,7 @@ function escribirIndex(){
                             <h4 class="card-title">Hungry Shark: Evo</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Infantiles')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
