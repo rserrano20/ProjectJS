@@ -3,8 +3,18 @@ import 'bootstrap';
 import '../css/style.css';
 
 let registroJuegos = [];
+let bodyDetalle;
+bodyDetalle = document.getElementById('bodyDetalle');
+
+/* window.onload = function() { 
+    bodyDetalle = document.getElementById('bodyDetalle');
+    cargarDetalle();
+} */
+
+/* export default function cargarDetalle(ob, cat){ */
 
 window.cargarDetalle = function(ob, cat){
+/* export function cargarDetalle(ob, cat){ */
     console.log(ob);
     alert(ob);
     alert(ob.id);
@@ -12,7 +22,10 @@ window.cargarDetalle = function(ob, cat){
     leerLS();
     let codigo = ob.id;
     console.log("codigo en cargarDetalle = "+codigo);
-    let bodyDetalle = document.getElementById('bodyDetalle');
+    /* let bodyDetalle = document.getElementById('bodyDetalle'); */
+    /* bodyDetalle = document.getElementById('bodyDetalle'); */
+    bodyDetalle = document.getElementById('bodyDetalle');
+    console.log(bodyDetalle);
     let juego = registroJuegos.find(function(item){
         return item.codigo == codigo;
     });

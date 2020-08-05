@@ -3,7 +3,7 @@ import 'bootstrap';
 import '../css/style.css';
 import 'jquery';
 import 'popper.js'
-
+import {cargarDetalle} from './detalle'
 import Juego from './juego.js';
 
 let accion1 = new Juego('1', 'AC: Origins', 'Accion/Aventura', 'Un juego que no conozco!', true, '59.99', 'acoo.png')
@@ -66,7 +66,8 @@ function escribirIndex(){
                             <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Accion/Aventura')">Ver mas</a>
+                                <a class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Accion/Aventura')">Ver mas</a>
+                                <button id="${juegoPublicados[i].codigo}" onclick=" return cargarDetalle(this, 'Accion/Aventura')">ver..</button>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -86,7 +87,7 @@ function escribirIndex(){
                             <h4 class="card-title">Far Cry 3</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Disparos')">Ver mas</a>
+                                <a  class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Disparos')">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
