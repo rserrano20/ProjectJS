@@ -144,8 +144,8 @@ function cargarTablas(){
             <td>${estado}</td>
             <td>${registroJuegos[i].precio}</td>
             <td>
-                <button class="btn btn-primary"><i class="far fa-edit"></i></button>
-                <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button> 
+                <button id="" class="btn btn-primary"><i class="far fa-edit"></i></button>
+                <button id="${registroJuegos[i].codigo}" class="btn btn-danger" onclick="eliminarJuego(this)"><i class="far fa-trash-alt"></i></button> 
                 <button class="${clase}" id="${registroJuegos[i].codigo}" onclick="juegoFavorito(this)"><i class="far fa-star"></i></button>
             </td>
         </tr>`;
@@ -358,12 +358,12 @@ window.eliminarJuego = function(juego){
             
             leerLS;
 			registroJuegos = registroJuegos.filter(function(item) {
-				return item.codigo != juego.codigo;
+				return item.codigo != juego.id;
 			});
 		
 			localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
 			leerLS;
-			
+			document.location.reload(true);
 
 		  Swal.fire(
 			'Producto eliminado',
