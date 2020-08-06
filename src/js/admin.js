@@ -1,4 +1,3 @@
-console.log('desde admin.js');
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import '../css/style.css';
@@ -13,6 +12,8 @@ import Swal from 'sweetalert2';
 
 let registroUsuarios = [];
 let registroJuegos = [];
+let registroFavoritos = [];
+let registroFavoritosN = [];
 
 cargarTablas();
 
@@ -73,6 +74,13 @@ function leerLS(){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
         registroUsuariosActivos = JSON.parse(localStorage.getItem('UsuariosActivos'));
+        registroFavoritos = JSON.parse(localStorage.getItem('Favoritos'));
+    }
+    if(localStorage.getItem("Favoritos") === null){
+        registroFavoritos = ["1","2","4"]
+        localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
+    }else{
+        localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
     }
 }
 
@@ -104,12 +112,28 @@ function cargarTablas(){
     });
     let codHTML = '';
     let estado;
-    
+    let clase = "";
+    let codFavorito;
     for(let i in registroJuegos){
+        /* clase = "btn btn-info" */
         if(registroJuegos[i].publicado){
             estado = "SI";
         }else{
             estado = "NO";
+        }
+        codFavorito = registroFavoritos.find(function(item){
+            if(registroJuegos[i].codigo == item){
+                console.log("item = "+item);
+                return item;
+            }else{
+                return null;
+            }
+        });
+        /* console.log("codFacorito = "+codFavorito) */
+        if(codFavorito){
+            clase = 'btn btn-warning';
+        }else{
+            clase = "btn btn-info";
         }
         codHTML=`
         <tr>
@@ -122,11 +146,12 @@ function cargarTablas(){
             <td>
                 <button class="btn btn-primary"><i class="far fa-edit"></i></button>
                 <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button> 
-                <button class="btn btn-primary"><i class="far fa-star"></i></button>        
+                <button class="${clase}" id="${registroJuegos[i].codigo}" onclick="juegoFavorito(this)"><i class="far fa-star"></i></button>
             </td>
         </tr>`;
         bodyJuegos.innerHTML += codHTML; 
     }
+    /* <button class="btn btn-primary"><i class="far fa-star"></i></button>  */
     codHTML = '';
     for(let i in registroUsuarios){
         codHTML = `
@@ -150,6 +175,36 @@ function nuevoAdminitrador(){
     registroUsuarios.push(admin);
     localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
     alert("Administrador agregado con Exito!");
+}
+
+window.juegoFavorito = function(buttonJuego){
+    leerLS();
+    let codigo = ""
+    registroFavoritosN = [];
+    console.log(registroFavoritos);
+    for(let i in registroFavoritos){
+        if(registroFavoritos[i]==buttonJuego.id){
+            codigo = null;
+            break;
+        }
+    }
+    console.log("button.id "+buttonJuego.id)
+    console.log(codigo + " codigoooooo")
+    if(codigo != null){ //no esta en registroFavorito asi q debo agregarlo
+        registroFavoritos.push(buttonJuego.id);
+        localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
+    }else{ //Si esta, asi q debo sacarlo
+        for(let i in registroFavoritos){
+            if(registroFavoritos[i] != buttonJuego.id){
+                registroFavoritosN.push(registroFavoritos[i]);
+            }
+        }
+        console.log(registroFavoritosN + "regis nuevo")
+        localStorage.setItem('Favoritos', JSON.stringify(registroFavoritosN));
+    }
+    document.location.reload(true);
+    /* limpiarTabla();
+    cargarTablas(); */
 }
 
 

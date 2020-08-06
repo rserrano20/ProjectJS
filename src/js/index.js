@@ -31,8 +31,11 @@ let registroUsuarios = [];
 let registroJuegos= [accion1, accion2, accion3, accion4, disparo1, disparo2, disparo3, 
     disparo4, carrera1, carrera2, carrera3, carrera4, infantil1, infantil2, infantil3, infantil4];
 cargarIndex();
+cargarSlider();
 
 let registroUsuariosActivos = [];
+let registroFavoritos = [];
+let registroSlider = [];
 leerLSActivo();
 function leerLSActivo(){
     if(localStorage.getItem('UsuariosActivos')!= null){
@@ -89,6 +92,7 @@ function leerLS(){
     if(localStorage.length>0){
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
         registroUsuariosActivos = JSON.parse(localStorage.getItem('UsuariosActivos'));
+        registroFavoritos = JSON.parse(localStorage.getItem('Favoritos'));
     }else{
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
@@ -98,7 +102,86 @@ function leerLS(){
     if(localStorage.getItem("Juegos") === null){
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
+    if(localStorage.getItem("Favoritos") === null){
+        console.log("SI ACCEDO AL FIN PARA ALMACENAR");
+        registroFavoritos = ["1","2","4"]
+        localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
+    }else{
+        registroFavoritos = JSON.parse(localStorage.getItem('Favoritos'));
+    }
 }
+
+function cargarSlider(){
+    leerLS();
+    registroSlider = [];
+    let imgSlaider = document.getElementById("sliderIndex");
+    let itemSlider = document.getElementById('itemSlider')
+    let codHTML = "";
+    let codItem = "";
+    let juegoPublicados = registroJuegos.filter(function(item){
+        return item.publicado == true;
+    });  
+    console.log("registroFavoritos = "+registroFavoritos);
+    console.log(juegoPublicados);
+    for(let i in juegoPublicados){
+        for(let x in registroFavoritos){
+            if(juegoPublicados[i].codigo == registroFavoritos[x]){
+                registroSlider.push(juegoPublicados[i]);
+            }
+        }
+    }
+    for(let i in registroSlider){
+        if(i==0){
+            codItem = `<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>`
+        }else{
+            codItem = `<li data-target="#carouselExampleCaptions" data-slide-to="${i}"></li>`
+        }
+        itemSlider.innerHTML += codItem;
+        switch(true){
+            case registroSlider[i].categoria == 'Accion/Aventura':
+                codHTML = `
+                <div class="carousel-item active">
+                    <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>`;
+                imgSlaider.innerHTML += codHTML;
+                break;
+            case registroSlider[i].categoria == 'Disparos':
+                codHTML = `
+                <div class="carousel-item active">
+                    <img src="img/categorias/Disparos/${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>`;
+                imgSlaider.innerHTML += codHTML;
+                break;
+            case registroSlider[i].categoria == 'Carreras':
+                codHTML = `
+                <div class="carousel-item active">
+                    <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>`;
+                imgSlaider.innerHTML += codHTML;
+                break;
+            case registroSlider[i].categoria == 'Infantiles':
+                codHTML = `
+                <div class="carousel-item active">
+                    <img src="img/categorias/Infantil/g${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>`;
+                imgSlaider.innerHTML += codHTML;
+                
+                break;
+            default:
+                alert("Error");
+                break;
+        }
+    }
+}
+
 
 function cargarAdministradorDefecto(){
     let administrdor = new Usuario('Rosario', 'Serrano', 'admin1234', 'rserrano@gmail.com', 'Administrador');
