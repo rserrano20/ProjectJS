@@ -40,7 +40,7 @@ function leerLS(){
     }
     /* console.log(registroJuegos);
     console.log(registroUsuarios); */
-    if(registroUsuarios==null){
+    if(localStorage.getItem("Usuarios") === null){
         cargarAdministradorDefecto();
     }
 }

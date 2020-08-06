@@ -5,6 +5,7 @@ import 'jquery';
 import 'popper.js'
 import {cargarDetalle} from './detalle'
 import Juego from './juego.js';
+import Usuario from './usuario.js';
 
 let accion1 = new Juego('1', 'AC: Origins', 'Accion/Aventura', 'Un juego que no conozco!', true, '59.99', 'acoo.png')
 let accion2 = new Juego('2', 'Prince of Persia', 'Accion/Aventura', 'Agregar Detalle', true, '49.99', 'prince.jpg');
@@ -26,6 +27,7 @@ let infantil2 = new Juego('13', 'Just Dance: Disney', 'Infantiles', 'Descp', tru
 let infantil3 = new Juego('14', 'Horse Heaven', 'Infantiles', 'Descp', true, '9.99', 'horse.jpg');
 let infantil4 = new Juego('15', 'Grow Up', 'Infantiles', 'Descp', true, '59.99', 'gr.png');
 
+let registroUsuarios = [];
 let registroJuegos= [accion1, accion2, accion3, accion4, disparo1, disparo2, disparo3, 
     disparo4, carrera1, carrera2, carrera3, carrera4, infantil1, infantil2, infantil3, infantil4];
 cargarIndex();
@@ -90,8 +92,16 @@ function leerLS(){
     }else{
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
+    if(localStorage.getItem("Usuarios") === null){
+        cargarAdministradorDefecto();
+    }
 }
 
+function cargarAdministradorDefecto(){
+    let administrdor = new Usuario('Rosario', 'Serrano', 'admin1234', 'rserrano@gmail.com', 'Administrador');
+    registroUsuarios = [administrdor]
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
+}
 function cargarIndex(){
     leerLS();
     escribirIndex();

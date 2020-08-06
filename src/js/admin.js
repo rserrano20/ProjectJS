@@ -8,11 +8,12 @@ import '@fortawesome/fontawesome-free/js/all.min.js'
 import Usuario from './usuario.js';
 import Juego from './juego.js';
 import {revisar} from './registro.js';
+import Swal from 'sweetalert2';
 
 
 let registroUsuarios = [];
 let registroJuegos = [];
-let listadoClientes = [];
+
 cargarTablas();
 
 let registroUsuariosActivos = [];
@@ -151,18 +152,7 @@ function nuevoAdminitrador(){
     alert("Administrador agregado con Exito!");
 }
 
-//VALIDACION DE JUEGO codigo, nombre, categoria, descripcion, publicado, precio, url
-window.validarFormJuego = function(e){
-    e.preventDefault();
-    
-    //Poner los campos que sean obligatorios!
-    if(revisar(document.getElementById('codigo')) && revisar(document.getElementById('nombre')) && revisar(document.getElementById('categoria')) && revisar(document.getElementById('descripcion')) &&revisar(document.getElementById('publicado')) && revisar(document.getElementById('precio'))){
-        nuevoJuego();
-    }else{
-        location.href = '../error404.html';
-        alert("Error al ingresar los datos!")
-    }
-}
+
 
 
 
@@ -242,27 +232,49 @@ function modificarCliente(){
     localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
 
 }
-
+//VALIDACION DE JUEGO codigo, nombre, categoria, descripcion, publicado, precio, url
+window.validarFormJuego = function(e){
+    e.preventDefault();
+    
+    //Poner los campos que sean obligatorios!
+    if(revisarCodigo(document.getElementById('codigo')) && revisar(document.getElementById('nombre')) && revisar(document.getElementById('categoria')) && revisar(document.getElementById('descripcion')) &&revisar(document.getElementById('publicado')) && revisar(document.getElementById('precio'))){
+        nuevoJuego();
+    }/* else{
+        alert("Error al ingresar los datos!");
+    } */
+}
+function revisarCodigo(codigo){
+    if(codigo.value != ""){
+        let juegoEncontrado = registroJuegos.find(function(item){
+            return item.codigo == codigo.value;
+        })
+        console.log(juegoEncontrado);
+        if(juegoEncontrado != null){
+            codigo.className = "form-control is-invalid";
+            console.log("El juego fue encontrado!")
+            return false;
+        }
+    }else{
+        codigo.className = "form-control is-valid";
+        return false;
+    }
+}
 function nuevoJuego(){
                         //Falta agregar el atributo de URL y preguntar si son mas de uno, xq es un array la propiedad
-    let juego = new Juego(document.getElementById('codigo'), document.getElementById('nombre'), document.getElementById('categoria'), 
-    document.getElementById('descripcion'), document.getElementById('publicado'), document.getElementById('precio'));
+    let juego = new Juego(document.getElementById('codigo').value, document.getElementById('nombre').value, document.getElementById('categoria').value, 
+    document.getElementById('descripcion').value, document.getElementById('publicado').value, document.getElementById('precio').value);
     let ventanaModal = document.getElementById('exampleModal');
     console.log(juego);
-    if(!juegoExistente(juego.codigo)){
-        juegoExistente.push(juego);
-        localStorage.setItem('Juegos', JSON.stringify(juegoExistente));
-        $(ventanaModal).modal('hide');
-        Swal.fire(
-            'Operacion Exitosa',
-            'Se agrego un nuevo juego al catalogo',
-            'success'
-        );
-    }else{
-        alert("ERROR: El juego ya existe!");
-        
-    }
-
+    registroJuegos.push(juego);
+    localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
+    $(ventanaModal).modal('hide');
+    Swal.fire(
+        'Operacion Exitosa',
+        'Se agrego un nuevo juego al catalogo',
+        'success'
+    );
+    alert("Esperar");
+    document.location.reload(true);
 }
 
 function juegoExistente(codigo){

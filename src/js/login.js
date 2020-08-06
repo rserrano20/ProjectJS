@@ -12,6 +12,14 @@ function leerLS(){
     if(localStorage.length>0){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
     }
+    if(localStorage.getItem("Usuarios") === null){
+        cargarAdministradorDefecto();
+    }
+}
+function cargarAdministradorDefecto(){
+    let administrdor = new Usuario('Rosario', 'Serrano', 'admin1234', 'rserrano@gmail.com', 'Administrador');
+    registroUsuarios = [administrdor]
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
 }
 
 function buscarUsuario(correoUsuario){
