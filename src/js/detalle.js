@@ -76,13 +76,13 @@ function getParameterByName(name, url) {
         <div class="text-center">
             <img src="img/categorias/${juego.categoria}/${juego.url}" alt="${juego.nombre} imagen" width="200px" class="efectoimg">
         </div>
-        <p class="lead text-center white-t">Checkea nuestros proximos lanzamientos. Pre-ordenalos y obten un 20% de descuento!</p>
+        <p class="lead text-center white-t mt-3">Checkea nuestros proximos lanzamientos. Pre-ordenalos y obten un 20% de descuento!</p>
         <hr>
         <ul>
             <li><strong>Nombre:</strong> ${juego.nombre}</li>
-            <li><strong>Descripcion del juego:</strong> ${juego.detalle} </li>
+            <li><strong>Descripcion del juego:</strong> ${juego.descripcion} </li>
             <li><strong>Categoria:</strong> ${juego.categoria} </li>
-            <a href="error404.html" class="btn btn-primary mx-1 efectoimg">Comprar</a>
+            <a href="error404.html" class="btn btn-primary mx-1 mt-3 efectoimg">Comprar</a>
         </ul>
     </article>`;
     return decodeURIComponent(results[2].replace(/\+/g, ' '));

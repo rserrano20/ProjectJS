@@ -12,18 +12,18 @@ let accion2 = new Juego('2', 'Prince of Persia', 'Accion/Aventura', 'Agregar Det
 let accion3 = new Juego('3', 'Space Junkies', 'Accion/Aventura', 'Agregar Detalle', true, '29.99', 'spacejunkies-keyart-compofinal_560x698_mobile_292672.jpg');
 let accion4 = new Juego('4', 'Far Cry Primal', 'Accion/Aventura', 'Agregar Descrip', true, '39.99', 'primal.jpg');
 
-let disparo1 = new Juego('5', 'Far Cry 3', 'Disparos', 'Agregar descp', true, '79.99', 'farcry3.jpg');
-let disparo2 = new Juego('6', 'Splinter Cell: Blacklist', 'Disparos', 'descp', true, '49.99', 'splinter.jpg');
+let disparo1 = new Juego('5', 'Far Cry 3', 'Disparos', 'Far Cry ha sido conocido por llevar al jugador a explorar lugares exóticos, desde islas tropicales hasta zonas desérticas. La serie se caracteriza por ofrecer una experiencia en primera persona combinada con mundo abierto', true, '79.99', 'farcry3.jpg');
+let disparo2 = new Juego('6', 'Splinter Cell: Blacklist', 'Disparos', 'Un grupo de 12 naciones ha decidido que ya es suficiente y ha lanzado un ultimátum llamado la Lista Negra, una serie de ataques terroristas en escala contra intereses de EE.UU. en todo el mundo. Sam Fisher es el líder de la recién creada 4th Echelon, una unidad clandestina que responde únicamente ante la presidenta de los Estados Unidos. Sam y su equipo perseguirán a estos terroristas recurriendo a todos los medios necesarios para detener la Lista Negra antes de que se agote la cuenta atrás. ', true, '49.99', 'splinter.jpg');
 let disparo3 = new Juego('7', 'Rainbow 6 Siege', 'Disparos', 'Descóp', true, '39.99', 'rainbow6.jpg');
-let disparo4 = new Juego('8', 'GR: Breakpoint', 'Disparos', 'Descp', true, '69.99', 'ghost.jpg');
+let disparo4 = new Juego('8', 'GR: Breakpoint', 'Disparos', 'El juego se desarrolla en un entorno de mundo abierto llamado Auroa, una isla ficticia en el Océano Pacífico. El jugador asume el papel de Nomad, un agente de fuerzas especiales enviado a la isla para investigar una serie de disturbios que involucran a Skell Technology, un contratista militar asentado en Auroa.', true, '69.99', 'ghost.jpg');
 
 let carrera1 = new Juego('9', 'Trials Rising', 'Carreras', 'descp', true, '29.99', 'moto.jpg');
 let carrera2 = new Juego('10', 'The Crew 2', 'Carreras', 'descp', true, '59.99', 'thecrew2.jpg');
 let carrera3 = new Juego('11', 'Trackmania: Lagoon', 'Carreras', 'Descp', true, '9.99', 'trackmania.jpg');
 let carrera4 = new Juego('12', 'Trackmania: Canyon', 'Carreras', 'desap', true, '19.99', 'canyon.jpg');
 
-let infantil1 = new Juego('12', 'Hungry Shark: Evo', 'Infantiles', 'Descp', true, '19.99', 'shark.jpg');
-let infantil2 = new Juego('13', 'Just Dance: Disney', 'Infantiles', 'Descp', true, '39.99', 'disney.png');
+let infantil1 = new Juego('12', 'Hungry Shark: Evo', 'Infantiles', 'El jugador controla a un tiburón hambriento que debe alimentarse constantemente para que su salud no se reduzca a cero. Los controles de movimiento incluyen un turbo para moverse a más velocidad hasta agotar su barra de aguante.', true, '19.99', 'shark.jpg');
+let infantil2 = new Juego('13', 'Just Dance: Disney', 'Infantiles', 'El modo de juego es idéntico a los otros juegos de la franquicia de Ubisoft, Just Dance. Los jugadores están obligados a realizar movimientos de baile específicos en el tiempo con la música, siguiendo una rutina indicada en pantalla e interpretada por bailarines en vivo. Si el jugador se desempeña bien, bailando con precisión y en tiempo, su puntuación se basará y una calificación de 5 estrellas se obtiene tras la finalización de la pista', true, '39.99', 'disney.png');
 let infantil3 = new Juego('14', 'Horse Heaven', 'Infantiles', 'Descp', true, '9.99', 'horse.jpg');
 let infantil4 = new Juego('15', 'Grow Up', 'Infantiles', 'Descp', true, '59.99', 'gr.png');
 
@@ -231,7 +231,7 @@ function escribirIndex(){
                     <div class="card-deck darkgrey" id="">
                         <img class="card-img-top " alt="100x280" src="img/categorias/Disparos/${juegoPublicados[i].url}">
                         <div class="card-body white-t" id="">
-                            <h4 class="card-title">Far Cry 3</h4>
+                            <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
                                 <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
@@ -251,7 +251,7 @@ function escribirIndex(){
                     <div class="card-deck darkgrey" id="">
                         <img class="card-img-top " alt="100x280" src="img/categorias/carreras/${juegoPublicados[i].url}">
                         <div class="card-body white-t" id="">
-                            <h4 class="card-title">Trials Rising</h4>
+                            <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
                                 <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
@@ -271,7 +271,7 @@ function escribirIndex(){
                     <div class="card-deck darkgrey" id="">
                         <img class="card-img-top " alt="100x280" src="img/categorias/Infantil/${juegoPublicados[i].url}">
                         <div class="card-body white-t" id="">
-                            <h4 class="card-title">Hungry Shark: Evo</h4>
+                            <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
                                 <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
