@@ -3,8 +3,9 @@ import 'bootstrap';
 import '../css/style.css';
 import 'jquery';
 import 'popper.js'
-
+import {cargarDetalle} from './detalle'
 import Juego from './juego.js';
+import Usuario from './usuario.js';
 
 let accion1 = new Juego('1', 'AC: Origins', 'Accion/Aventura', 'Un juego que no conozco!', true, '59.99', 'acoo.png')
 let accion2 = new Juego('2', 'Prince of Persia', 'Accion/Aventura', 'Agregar Detalle', true, '49.99', 'prince.jpg');
@@ -26,19 +27,81 @@ let infantil2 = new Juego('13', 'Just Dance: Disney', 'Infantiles', 'Descp', tru
 let infantil3 = new Juego('14', 'Horse Heaven', 'Infantiles', 'Descp', true, '9.99', 'horse.jpg');
 let infantil4 = new Juego('15', 'Grow Up', 'Infantiles', 'Descp', true, '59.99', 'gr.png');
 
+let registroUsuarios = [];
 let registroJuegos= [accion1, accion2, accion3, accion4, disparo1, disparo2, disparo3, 
     disparo4, carrera1, carrera2, carrera3, carrera4, infantil1, infantil2, infantil3, infantil4];
 cargarIndex();
+
+let registroUsuariosActivos = [];
+leerLSActivo();
+function leerLSActivo(){
+    if(localStorage.getItem('UsuariosActivos')!= null){
+        leerLS();
+        
+        let nav = document.getElementById('tipoNav');
+        nav.innerHTML = `
+        <div class="container">
+            <a class="navbar-brand efectoimg" href="index.html" target="blank">
+                <img src="img/logo3.png" alt="logo startGamer" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto list-unstyled">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">CONTACTO |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.html">ACERCA DE |</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link efectoimg" onclick="direccionarAdmin()">${registroUsuariosActivos[0].nombre}
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link efectoimg" onclick="cerrarSesion()">
+                            <i class="fas fa-sign-out-alt"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>`
+    }
+}
+window.direccionarAdmin =function(){
+    if(registroUsuariosActivos[0].tipo == 'Administrador'){
+        location.href = 'admin.html';
+    }
+}
+window.cerrarSesion = function(){
+    localStorage.removeItem('UsuariosActivos');
+    document.location.reload(true);
+}
 
 
 function leerLS(){
     if(localStorage.length>0){
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
+        registroUsuariosActivos = JSON.parse(localStorage.getItem('UsuariosActivos'));
     }else{
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
+    if(localStorage.getItem("Usuarios") === null){
+        cargarAdministradorDefecto();
+    }
 }
 
+function cargarAdministradorDefecto(){
+    let administrdor = new Usuario('Rosario', 'Serrano', 'admin1234', 'rserrano@gmail.com', 'Administrador');
+    registroUsuarios = [administrdor]
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
+}
 function cargarIndex(){
     leerLS();
     escribirIndex();
@@ -66,7 +129,7 @@ function escribirIndex(){
                             <h4 class="card-title">${juegoPublicados[i].nombre}</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Accion/Aventura')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -86,7 +149,7 @@ function escribirIndex(){
                             <h4 class="card-title">Far Cry 3</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Disparos')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -106,7 +169,7 @@ function escribirIndex(){
                             <h4 class="card-title">Trials Rising</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this,'Carreras')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>
@@ -126,7 +189,7 @@ function escribirIndex(){
                             <h4 class="card-title">Hungry Shark: Evo</h4>
                             <h5 class="card-text"><strong> >> ${juegoPublicados[i].precio} US$</strong></h5>
                             <div class="container text-right mb-2">
-                                <a href="detalle.html" class="btn btn-dark mx-1 efectoimg black" id="${juegoPublicados[i].codigo}" onclick="cargarDetalle(this, 'Infantiles')">Ver mas</a>
+                                <a href="detalle.html?Id=${juegoPublicados[i].codigo}" class="btn btn-dark mx-1 efectoimg black">Ver mas</a>
                                 <a href="error404.html" class="btn btn-dark efectoimg orange" id="">Comprar</a>
                             </div>
                             <i class="fab fa-xbox mx-1" style="color:#c7c7c7"></i>

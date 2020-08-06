@@ -8,45 +8,103 @@ import '@fortawesome/fontawesome-free/js/all.min.js'
 import Usuario from './usuario.js';
 import Juego from './juego.js';
 import {revisar} from './registro.js';
+import Swal from 'sweetalert2';
 
 
 let registroUsuarios = [];
 let registroJuegos = [];
+
 cargarTablas();
 
-
+let registroUsuariosActivos = [];
+leerLSActivo();
+function leerLSActivo(){
+    if(localStorage.getItem('UsuariosActivos')!= null){
+        leerLS();
+        
+        let nav = document.getElementById('tipoNav');
+        nav.innerHTML = `
+        <div class="container">
+            <a class="navbar-brand efectoimg" href="index.html" target="blank">
+                <img src="img/logo3.png" alt="logo startGamer" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto list-unstyled">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">CONTACTO |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.html">ACERCA DE |</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link efectoimg" onclick="direccionarAdmin()">${registroUsuariosActivos[0].nombre}
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link efectoimg" onclick="cerrarSesion()">
+                            <i class="fas fa-sign-out-alt"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>`
+    }
+}
+window.direccionarAdmin =function(){
+    if(registroUsuariosActivos[0].tipo == 'Administrador'){
+        location.href = 'admin.html';
+    }
+}
+window.cerrarSesion = function(){
+    localStorage.removeItem('UsuariosActivos');
+    document.location.reload(true);
+}
 
 function leerLS(){
     if(localStorage.length>0){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
+        registroUsuariosActivos = JSON.parse(localStorage.getItem('UsuariosActivos'));
     }
 }
 
-function aprobarCliente(){
+window.aprobarCliente = function(correo){
     leerLS();
-
+    console.log("SI accedo a aprobarCliente");
     //Debemos seleccionar la linea del cliente que vamos a aprobar como hicimos con modificar en funkopop
-
-    //Cambiar el estado
-
+    for(let i in registroUsuarios){
+        if(registroUsuarios[i].correo == correo){
+            //Cambiar el estado
+            registroUsuarios[i].estado = 'Aprobado';
+            break;
+        }
+    }
     //Guardar Cambios
-
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
     //En el caso que quieramos mostrar solo los estados pendiente, hay que actualizar la tabla
     //O podemos mostrar todos los usuarios y agregarle un check a los que esten validados
+    document.location.reload(true);
 }
 
 function cargarTablas(){
     leerLS();
-    console.log("En cargarTabla")
+    
     let bodyJuegos = document.getElementById('bodyJuego');
     let bodyCliente = document.getElementById('bodyCliente');
-    let listadoClientes = registroUsuarios.filter(function(cliente){
-        return cliente.tipo == 'Cliente';
-    })
+    registroUsuarios = registroUsuarios.filter(function(cliente){
+        return cliente.tipo == 'Cliente' && cliente.estado == 'Pendiente';
+    });
     let codHTML = '';
     let estado;
-    console.log(registroJuegos);
+    
     for(let i in registroJuegos){
         if(registroJuegos[i].publicado){
             estado = "SI";
@@ -70,11 +128,18 @@ function cargarTablas(){
         bodyJuegos.innerHTML += codHTML; 
     }
     codHTML = '';
-    for(let i in listadoClientes){
-        if(listadoClientes[i].estado == 'Pendiente'){
-            codHTML = ``;
-            bodyCliente.innerHTML += codHTML;
-        }
+    for(let i in registroUsuarios){
+        codHTML = `
+        <tr>
+            <td>${registroUsuarios[i].nombre}</td>
+            <td>${registroUsuarios[i].apellido}</td>
+            <td>${registroUsuarios[i].correo}</td>
+            <td>${registroUsuarios[i].estado}</td>
+            <td>
+                <button id="${registroUsuarios[i].correo}" class="btn btn-primary" onclick="aprobarCliente(this.id)"><i class="far fa-check-square"></i></button>       
+            </td>
+        </tr>`;
+        bodyCliente.innerHTML += codHTML;
     }
 
 }
@@ -87,18 +152,7 @@ function nuevoAdminitrador(){
     alert("Administrador agregado con Exito!");
 }
 
-//VALIDACION DE JUEGO codigo, nombre, categoria, descripcion, publicado, precio, url
-window.validarFormJuego = function(e){
-    e.preventDefault();
-    
-    //Poner los campos que sean obligatorios!
-    if(revisar(document.getElementById('codigo')) && revisar(document.getElementById('nombre')) && revisar(document.getElementById('categoria')) && revisar(document.getElementById('descripcion')) &&revisar(document.getElementById('publicado')) && revisar(document.getElementById('precio'))){
-        nuevoJuego();
-    }else{
-        location.href = '../error404.html';
-        alert("Error al ingresar los datos!")
-    }
-}
+
 
 
 
@@ -178,27 +232,49 @@ function modificarCliente(){
     localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
 
 }
-
+//VALIDACION DE JUEGO codigo, nombre, categoria, descripcion, publicado, precio, url
+window.validarFormJuego = function(e){
+    e.preventDefault();
+    
+    //Poner los campos que sean obligatorios!
+    if(revisarCodigo(document.getElementById('codigo')) && revisar(document.getElementById('nombre')) && revisar(document.getElementById('categoria')) && revisar(document.getElementById('descripcion')) &&revisar(document.getElementById('publicado')) && revisar(document.getElementById('precio'))){
+        nuevoJuego();
+    }/* else{
+        alert("Error al ingresar los datos!");
+    } */
+}
+function revisarCodigo(codigo){
+    if(codigo.value != ""){
+        let juegoEncontrado = registroJuegos.find(function(item){
+            return item.codigo == codigo.value;
+        })
+        console.log(juegoEncontrado);
+        if(juegoEncontrado != null){
+            codigo.className = "form-control is-invalid";
+            console.log("El juego fue encontrado!")
+            return false;
+        }
+    }else{
+        codigo.className = "form-control is-valid";
+        return false;
+    }
+}
 function nuevoJuego(){
                         //Falta agregar el atributo de URL y preguntar si son mas de uno, xq es un array la propiedad
-    let juego = new Juego(document.getElementById('codigo'), document.getElementById('nombre'), document.getElementById('categoria'), 
-    document.getElementById('descripcion'), document.getElementById('publicado'), document.getElementById('precio'));
+    let juego = new Juego(document.getElementById('codigo').value, document.getElementById('nombre').value, document.getElementById('categoria').value, 
+    document.getElementById('descripcion').value, document.getElementById('publicado').value, document.getElementById('precio').value);
     let ventanaModal = document.getElementById('exampleModal');
     console.log(juego);
-    if(!juegoExistente(juego.codigo)){
-        juegoExistente.push(juego);
-        localStorage.setItem('Juegos', JSON.stringify(juegoExistente));
-        $(ventanaModal).modal('hide');
-        Swal.fire(
-            'Operacion Exitosa',
-            'Se agrego un nuevo juego al catalogo',
-            'success'
-        );
-    }else{
-        alert("ERROR: El juego ya existe!");
-        
-    }
-
+    registroJuegos.push(juego);
+    localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
+    $(ventanaModal).modal('hide');
+    Swal.fire(
+        'Operacion Exitosa',
+        'Se agrego un nuevo juego al catalogo',
+        'success'
+    );
+    alert("Esperar");
+    document.location.reload(true);
 }
 
 function juegoExistente(codigo){

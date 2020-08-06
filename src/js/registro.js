@@ -30,6 +30,7 @@ function nuevoCliente() {
     registroUsuarios.push(cliente);
     localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
     alert("Bienvenido! Ahora debe esperar que habiliten su cuenta.");
+    location.href = "index.html";
 }
 
 function leerLS(){
@@ -37,9 +38,9 @@ function leerLS(){
         registroUsuarios = JSON.parse(localStorage.getItem('Usuarios'));
         registroJuegos = JSON.parse(localStorage.getItem('Juegos'));
     }
-    console.log(registroJuegos);
-    console.log(registroUsuarios);
-    if(registroUsuarios==null){
+    /* console.log(registroJuegos);
+    console.log(registroUsuarios); */
+    if(localStorage.getItem("Usuarios") === null){
         cargarAdministradorDefecto();
     }
 }
@@ -93,29 +94,31 @@ window.validarFormAdmin = function(e){
 
 window.validarFormNuevoCliente = function(e){
     e.preventDefault();
-    if(revisar(document.getElementById('nombre')) && revisar(document.getElementById('apellido')) && validarContra(document.getElementById('pass'), document.getElementById('pass2')) && validarCorreo(document.getElementById('email')) && document.getElementById('terminos').checked){
+    console.log(document.getElementById('pass').value +" "+ document.getElementById('pass2').value)
+    if(revisar(document.getElementById('nombre')) && revisar(document.getElementById('apellido')) && validarContra(document.getElementById('pass'), document.getElementById('pass2')) && validarCorreo(document.getElementById('email')) && validarCheck(document.getElementById('terminos'))){
         nuevoCliente();
-    }else{
-        alert("Error en el ingreso de datos!");
     }
 }
 
-/* export function validarDatos(nombre, apellido, contraseña, correo){
-    if(revisar(nombre) && revisar(apellido) && validarContra(contraseña) && validarCorreo(correo)){
+function validarCheck(terminos){
+    if(terminos.checked){
         return true;
     }else{
+        terminos.className = "form-control is-invalid";
         return false;
     }
-} */
+}
+
 function validarContra(contraseña, contraseña2){
-    if(revisar(contraseña) && revisar(contraseña2)){
-        if(contraseña === contraseña2){
-            contraseña.className = "form-control is-valid";
-            contraseña2.className = "form-control is-valid";
-            return true;
-        }
+    console.log("SI ACCEDE A VALIDARCONTRA!!");
+    console.log("contraseña_: "+contraseña.value + "  --- "+contraseña2.value);
+    if(contraseña.value !="" && contraseña2.value != "" && contraseña.value == contraseña2.value){
+        contraseña.className = "form-control is-valid";
+        contraseña2.className = "form-control is-valid";
+        return true;
     }else{
-        correo.className = "form-control is-invalid";
+        contraseña.className = "form-control is-invalid";
+        contraseña2.className = "form-control is-invalid";
         return false;
     }
 }
@@ -123,7 +126,7 @@ function validarContra(contraseña, contraseña2){
 function validarCorreo(correo){
     let expresion = /\w+@\w+\.[a-z]{2,}$/;
     let bandera = false;
-    if(revisar(correo.value)== true && expresion.test(correo.value)){
+    if(revisar(correo)== true && expresion.test(correo.value)){
         //Vamos a comprobar que el correo no se encuentre almacenado
         leerLS();
         for(let i in registroUsuarios){
