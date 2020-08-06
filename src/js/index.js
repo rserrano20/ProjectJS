@@ -103,7 +103,7 @@ function leerLS(){
         localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     }
     if(localStorage.getItem("Favoritos") === null){
-        console.log("SI ACCEDO AL FIN PARA ALMACENAR");
+        
         registroFavoritos = ["1","2","4"]
         localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
     }else{
@@ -121,8 +121,7 @@ function cargarSlider(){
     let juegoPublicados = registroJuegos.filter(function(item){
         return item.publicado == true;
     });  
-    console.log("registroFavoritos = "+registroFavoritos);
-    console.log(juegoPublicados);
+   
     for(let i in juegoPublicados){
         for(let x in registroFavoritos){
             if(juegoPublicados[i].codigo == registroFavoritos[x]){

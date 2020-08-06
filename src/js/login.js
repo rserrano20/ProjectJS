@@ -60,7 +60,7 @@ window.validarSesion = function(e){
             alert("BIENVENIDO "+usuario.nombre);
             UsuariosActivos.push(usuario);
             localStorage.setItem('UsuariosActivos', JSON.stringify(UsuariosActivos));
-            console.log(usuario.tipo);
+            
             //Deberiamos mandar al perfil del usuario o mandar al index y remplzar su nombre por el de "iniciar sesion" del nav 
             document.location.reload(true);
             if(usuario.tipo == 'Administrador'){

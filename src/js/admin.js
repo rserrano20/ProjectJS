@@ -86,7 +86,7 @@ function leerLS(){
 
 window.aprobarCliente = function(correo){
     leerLS();
-    console.log("SI accedo a aprobarCliente");
+    
     //Debemos seleccionar la linea del cliente que vamos a aprobar como hicimos con modificar en funkopop
     for(let i in registroUsuarios){
         if(registroUsuarios[i].correo == correo){
@@ -115,7 +115,7 @@ function cargarTablas(){
     let clase = "";
     let codFavorito;
     for(let i in registroJuegos){
-        /* clase = "btn btn-info" */
+        
         if(registroJuegos[i].publicado){
             estado = "SI";
         }else{
@@ -123,13 +123,13 @@ function cargarTablas(){
         }
         codFavorito = registroFavoritos.find(function(item){
             if(registroJuegos[i].codigo == item){
-                console.log("item = "+item);
+                
                 return item;
             }else{
                 return null;
             }
         });
-        /* console.log("codFacorito = "+codFavorito) */
+        
         if(codFavorito){
             clase = 'btn btn-warning';
         }else{
@@ -170,7 +170,7 @@ function cargarTablas(){
 }
 function nuevoAdminitrador(){
     let admin = new Usuario(document.getElementById('').value, document.getElementById('').value, document.getElementById('').value, document.getElementById('').value, 'Administrador');
-    console.log(admin);
+    
     leerLS();
     registroUsuarios.push(admin);
     localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
@@ -181,15 +181,14 @@ window.juegoFavorito = function(buttonJuego){
     leerLS();
     let codigo = ""
     registroFavoritosN = [];
-    console.log(registroFavoritos);
+    
     for(let i in registroFavoritos){
         if(registroFavoritos[i]==buttonJuego.id){
             codigo = null;
             break;
         }
     }
-    console.log("button.id "+buttonJuego.id)
-    console.log(codigo + " codigoooooo")
+    
     if(codigo != null){ //no esta en registroFavorito asi q debo agregarlo
         registroFavoritos.push(buttonJuego.id);
         localStorage.setItem('Favoritos', JSON.stringify(registroFavoritos));
@@ -199,7 +198,7 @@ window.juegoFavorito = function(buttonJuego){
                 registroFavoritosN.push(registroFavoritos[i]);
             }
         }
-        console.log(registroFavoritosN + "regis nuevo")
+        
         localStorage.setItem('Favoritos', JSON.stringify(registroFavoritosN));
     }
     document.location.reload(true);
@@ -222,7 +221,7 @@ window.eliminarCliente=function(cliente){
 		confirmButtonText: 'Borrar'
 	  }).then((result) => {
 		if (result.value) {
-            console.log(result.value);
+            
             leerLS;
 			registroUsuarios = registroUsuarios.filter(function(item) {
 				return item.correo != cliente.correo;
@@ -230,7 +229,7 @@ window.eliminarCliente=function(cliente){
 		
 			localStorage.setItem('Juegos', JSON.stringify(registroUsuarios));
 			leerLS;
-			console.log(registroUsuarios);
+			
 
 		  Swal.fire(
 			'Producto eliminado',
@@ -252,7 +251,7 @@ window.preModificarCliente=function(correoCliente){
     let clienteEncontrado = registroUsuarios.find(function(cliente){
         return cliente.correo == correoCliente;
     });
-    console.log(clienteEncontrado);
+    
     document.getElementById('').value = clienteEncontrado.nombre;
     document.getElementById('').value = clienteEncontrado.apellido;
     document.getElementById('').value = clienteEncontrado.contraseña;
@@ -303,10 +302,10 @@ function revisarCodigo(codigo){
         let juegoEncontrado = registroJuegos.find(function(item){
             return item.codigo == codigo.value;
         })
-        console.log(juegoEncontrado);
+        
         if(juegoEncontrado != null){
             codigo.className = "form-control is-invalid";
-            console.log("El juego fue encontrado!")
+            
             return false;
         }
     }else{
@@ -319,7 +318,7 @@ function nuevoJuego(){
     let juego = new Juego(document.getElementById('codigo').value, document.getElementById('nombre').value, document.getElementById('categoria').value, 
     document.getElementById('descripcion').value, document.getElementById('publicado').value, document.getElementById('precio').value);
     let ventanaModal = document.getElementById('exampleModal');
-    console.log(juego);
+    
     registroJuegos.push(juego);
     localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
     $(ventanaModal).modal('hide');
@@ -351,7 +350,7 @@ window.eliminarJuego = function(juego){
 		confirmButtonText: 'Borrar'
 	  }).then((result) => {
 		if (result.value) {
-            console.log(result.value);
+            
             leerLS;
 			registroJuegos = registroJuegos.filter(function(item) {
 				return item.codigo != juego.codigo;
@@ -359,7 +358,7 @@ window.eliminarJuego = function(juego){
 		
 			localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
 			leerLS;
-			console.log(registroJuegos);
+			
 
 		  Swal.fire(
 			'Producto eliminado',
@@ -380,7 +379,7 @@ window.preModificarJuego = function(codigoJuego){
     let juegoEncontrado = registroJuegos.find(function(juego){
         return juego.codigo == codigoJuego;
     });
-    console.log(juegoEncontrado);
+    
     //Debo cargar en el modal los datos a ser modificado
     document.getElementById('').value = juegoEncontrado.codigo;
     document.getElementById('').value = juegoEncontrado.nombre;

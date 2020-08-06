@@ -58,20 +58,19 @@ window.cerrarSesion = function(){
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
-    console.log("name = "+name);
+    
     leerLS();
-    /* name = name.replace(/[\[\]]/g, '\\$&'); */
+    
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
     let bodyDetalle = document.getElementById('bodyDetalle');
-    console.log(bodyDetalle);
-    console.log(decodeURIComponent(results[2].replace(/\+/g, ' ')))
+    
     let juego = registroJuegos.find(function(item){
         return item.codigo == decodeURIComponent(results[2].replace(/\+/g, ' '));
     });
-    console.log(juego);
+    
     bodyDetalle.innerHTML = `
     <article>
         <div class="text-center">
@@ -89,7 +88,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 let prodId = getParameterByName('Id');
-console.log("prodId fuera = "+prodId);
+
 
 function leerLS(){
     if(localStorage.length>0){
