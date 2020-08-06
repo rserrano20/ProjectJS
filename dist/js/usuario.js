@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/contacto.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/usuario.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/contacto.js":
-/*!****************************!*\
-  !*** ./src/js/contacto.js ***!
-  \****************************/
-/*! no exports provided */
+/***/ "./src/js/usuario.js":
+/*!***************************!*\
+  !*** ./src/js/usuario.js ***!
+  \***************************/
+/*! exports provided: default */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open 'D:\\\\PROYECTOS\\\\RollingCode\\\\ProjectJS\\\\src\\\\js\\\\contacto.js'\");\n\n//# sourceURL=webpack:///./src/js/contacto.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open 'D:\\\\PROYECTOS\\\\RollingCode\\\\ProjectJS\\\\src\\\\js\\\\usuario.js'\");\n\n//# sourceURL=webpack:///./src/js/usuario.js?");
 
 /***/ })
 
