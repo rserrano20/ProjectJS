@@ -16,7 +16,7 @@
     <header>
         <!--NAVBAR-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top black white-t" id="tipoNav">
-            <!-- <div class="container">
+            <div class="container">
                 <a class="navbar-brand efectoimg" href="index.html">
                     <img src="img/logo3.png" alt="logo startGamer" class="logo">
                 </a>
@@ -47,13 +47,13 @@
                         </li>
                     </ul>
                 </div>
-            </div> -->
+            </div>
         </nav>
     </header>
 <!--SECCION PRINCIPAL-->
     <section class="container formulario">
-        <h1 class=" text-center"><strong>Administrar Juegos</strong></h1>
-        <hr id="hr">
+        <h1 class="display-4 text-center white-t"><strong>Administrar Juegos</strong></h1>
+        <hr>
             <section class="row justify-content-center">
                 <div class="col-10">
                 </div>
@@ -63,8 +63,8 @@
             </section>
             <section>
                 <article class="row my-4">
-                    <div class="col-10 text-center">
-                        <h3>Tabla de Productos</h3>
+                    <div class="col-10">
+                        <h3 class="white-t">Tabla de Productos</h3>
                     </div>
                     <div class="col-2 text-right">
                         <button class="btn btn-outline-danger" data-toggle="modal"
@@ -85,6 +85,44 @@
                             </tr>
                         </thead>
                         <tbody  id="bodyJuego">
+                            
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+    </section>
+    <section class="container formulario">
+        <h1 class="display-4 text-center white-t"><strong>Clientes Pendientes</strong></h1>
+        <hr>
+            <section class="row justify-content-center">
+                <div class="col-10">
+                </div>
+                <div class="col-2">
+                    <img src="" alt="" class="w-100">
+                </div>
+            </section>
+            <section>
+                <!-- <article class="row my-4">
+                    <div class="col-10 text-center">
+                        <h3>Tabla de Clientes</h3>
+                    </div>
+                    <div class="col-2 text-right">
+                        <button class="btn btn-outline-danger" data-toggle="modal"
+                            data-target="#exampleModal">Agregar</button>
+                    </div>
+                </article> -->
+                <article id="seccionCliente">
+                    <table class="table  text-light text-center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Validar</th>
+                            </tr>
+                        </thead>
+                        <tbody  id="bodyCliente">
                             
                         </tbody>
                     </table>

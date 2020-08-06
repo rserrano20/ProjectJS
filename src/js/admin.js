@@ -12,6 +12,7 @@ import {revisar} from './registro.js';
 
 let registroUsuarios = [];
 let registroJuegos = [];
+let listadoClientes = [];
 cargarTablas();
 
 let registroUsuariosActivos = [];
@@ -74,30 +75,35 @@ function leerLS(){
     }
 }
 
-function aprobarCliente(){
+window.aprobarCliente = function(correo){
     leerLS();
-
+    console.log("SI accedo a aprobarCliente");
     //Debemos seleccionar la linea del cliente que vamos a aprobar como hicimos con modificar en funkopop
-
-    //Cambiar el estado
-
+    for(let i in registroUsuarios){
+        if(registroUsuarios[i].correo == correo){
+            //Cambiar el estado
+            registroUsuarios[i].estado = 'Aprobado';
+            break;
+        }
+    }
     //Guardar Cambios
-
+    localStorage.setItem('Usuarios', JSON.stringify(registroUsuarios));
     //En el caso que quieramos mostrar solo los estados pendiente, hay que actualizar la tabla
     //O podemos mostrar todos los usuarios y agregarle un check a los que esten validados
+    document.location.reload(true);
 }
 
 function cargarTablas(){
     leerLS();
-    console.log("En cargarTabla")
+    
     let bodyJuegos = document.getElementById('bodyJuego');
     let bodyCliente = document.getElementById('bodyCliente');
-    let listadoClientes = registroUsuarios.filter(function(cliente){
-        return cliente.tipo == 'Cliente';
-    })
+    registroUsuarios = registroUsuarios.filter(function(cliente){
+        return cliente.tipo == 'Cliente' && cliente.estado == 'Pendiente';
+    });
     let codHTML = '';
     let estado;
-    console.log(registroJuegos);
+    
     for(let i in registroJuegos){
         if(registroJuegos[i].publicado){
             estado = "SI";
@@ -121,11 +127,18 @@ function cargarTablas(){
         bodyJuegos.innerHTML += codHTML; 
     }
     codHTML = '';
-    for(let i in listadoClientes){
-        if(listadoClientes[i].estado == 'Pendiente'){
-            codHTML = ``;
-            bodyCliente.innerHTML += codHTML;
-        }
+    for(let i in registroUsuarios){
+        codHTML = `
+        <tr>
+            <td>${registroUsuarios[i].nombre}</td>
+            <td>${registroUsuarios[i].apellido}</td>
+            <td>${registroUsuarios[i].correo}</td>
+            <td>${registroUsuarios[i].estado}</td>
+            <td>
+                <button id="${registroUsuarios[i].correo}" class="btn btn-primary" onclick="aprobarCliente(this.id)"><i class="far fa-check-square"></i></button>       
+            </td>
+        </tr>`;
+        bodyCliente.innerHTML += codHTML;
     }
 
 }
