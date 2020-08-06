@@ -343,7 +343,7 @@ window.preModificarJuego = function(codigoJuego){
 
 //Con una bandera en agregarJuego, deberia llamarse a esta funcion
 function modificarJuego(){
-                //Si vamos a tener en cuenta que puede agregar mas de una URL de imagen/video hay q modificar el parametro de juego y pasar un array
+     //Si vamos a tener en cuenta que puede agregar mas de una URL de imagen/video hay q modificar el parametro de juego y pasar un array
     let juego = new Juego(document.getElementById('').value, document.getElementById('').value, 
     document.getElementById('').value, document.getElementById('').value, document.getElementById('').value, 
     document.getElementById('').value, document.getElementById('').value);
