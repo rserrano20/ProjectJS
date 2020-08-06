@@ -299,14 +299,19 @@ window.validarFormJuego = function(e){
 }
 function revisarCodigo(codigo){
     if(codigo.value != ""){
-        let juegoEncontrado = registroJuegos.find(function(item){
+        let juegoEncontrado /* = registroJuegos.find(function(item){
             return item.codigo == codigo.value;
-        })
-        
+        }) */
+        for(let i in registroJuegos){
+            if(registroJuegos[i].codigo == codigo.value){
+                juegoEncontrado = null;
+            }
+        }
         if(juegoEncontrado != null){
             codigo.className = "form-control is-invalid";
-            
             return false;
+        }else{
+            return true;
         }
     }else{
         codigo.className = "form-control is-valid";
