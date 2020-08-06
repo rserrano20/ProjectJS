@@ -95,6 +95,9 @@ function leerLS(){
     if(localStorage.getItem("Usuarios") === null){
         cargarAdministradorDefecto();
     }
+    if(localStorage.getItem("Juegos") === null){
+        localStorage.setItem('Juegos', JSON.stringify(registroJuegos));
+    }
 }
 
 function cargarAdministradorDefecto(){
