@@ -138,17 +138,26 @@ function cargarSlider(){
         itemSlider.innerHTML += codItem;
         switch(true){
             case registroSlider[i].categoria == 'Accion/Aventura':
-                codHTML = `
-                <div class="carousel-item active">
-                    <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
-                    <div class="carousel-caption d-none d-md-block">
-                    </div>
-                </div>`;
+                if(i==0){
+                    codHTML = `
+                    <div class="carousel-item active">
+                        <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>`;
+                }else{
+                    codHTML = `
+                    <div class="carousel-item">
+                        <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>`;
+                }
                 imgSlaider.innerHTML += codHTML;
                 break;
             case registroSlider[i].categoria == 'Disparos':
                 codHTML = `
-                <div class="carousel-item active">
+                <div class="carousel-item">
                     <img src="img/categorias/Disparos/${registroSlider[i].url}" class="d-block w-100" alt="acv">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
@@ -157,7 +166,7 @@ function cargarSlider(){
                 break;
             case registroSlider[i].categoria == 'Carreras':
                 codHTML = `
-                <div class="carousel-item active">
+                <div class="carousel-item">
                     <img src="img/categorias/carreras/${registroSlider[i].url}" class="d-block w-100" alt="acv">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
